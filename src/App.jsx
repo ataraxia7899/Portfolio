@@ -22,20 +22,21 @@ export default function App() {
 				{/* 맨위에 커버를 설치해서 겹치지 않도록 위치 조절 */}
 				<div
 					style={{
-						width: '80%',
+						width: '81%',
 						background: '#333333',
 						position: 'relative',
-						top: '40px',
+						top: '35px',
 						paddingInline: '35px',
+						paddingBottom: '25px',
 					}}
 				>
 					<Title />
 					<Basic_explanation />
-					<AboutMe />
+					<Educations />
 					<Skills_and_Tool />
 					<Awards />
 					<Projects />
-					<Educations />
+					<AboutMe />
 				</div>
 			</div>
 		</>

@@ -38,7 +38,7 @@ export default function Skills_and_Tool() {
 			<table
 				className="table"
 				border="1"
-				style={{ width: '80%', textAlign: 'center', tableLayout: 'fixed' }}
+				style={{ width: '100%', textAlign: 'center', tableLayout: 'fixed' }}
 			>
 				<thead>
 					<tr>

@@ -21,7 +21,7 @@ export default function AboutMe() {
 				style={{ width: '20px', height: '20px' }}
 			/>{' '}
 			<b style={{ fontSize: '1.1rem' }}>About me</b>
-			<hr style={{ width: '80%', margin: '10px 0' }} />
+			<hr style={{ width: '100%', margin: '10px 0' }} />
 			<ul style={UIStyle}>
 				<li>유지보수가 쉬운 SW를 개발하고 싶어요.</li>
 				<li>

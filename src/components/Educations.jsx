@@ -16,8 +16,8 @@ export default function Educations() {
 					alt="handup_human"
 					style={{ width: '20px', height: '20px' }}
 				/>{' '}
-				<b>Projects</b>
-				<hr style={{ width: '80%', margin: '10px 0' }} />
+				<b>Educations</b>
+				<hr style={{ width: '100%', margin: '10px 0' }} />
 			</p>
 			<ul style={UIStyle}>
 				<li>수원과학대학교 (2년제) / 정보통신과</li>
