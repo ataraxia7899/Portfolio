@@ -2,9 +2,8 @@
 	color-scheme: light dark;
 	color: rgba(255, 255, 255, 0.87);
 	background-color: #191919;
-	margin: 0 auto;
-	width: 80%;
-	margin-top: 20px;
+	/* margin-top: 20px; */
+	margin: 0 15%;
 }
 
 /* 원래 배경색 #242424 */

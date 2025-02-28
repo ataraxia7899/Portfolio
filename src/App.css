@@ -1,8 +1,18 @@
+/* 
+ * 루트 요소 스타일
+ * 최대 너비를 설정하고 콘텐츠를 수평으로 중앙 정렬
+ * 콘텐츠 주변에 패딩 적용
+ * 텍스트 정렬은 주석 처리되어 있지만 필요시 주석 해제하여 중앙 정렬 가능
+ */
+
 #root {
-	max-width: 1280px;
 	margin: 0 auto;
 	padding: 1rem;
-	/* text-align: center; */
+	background-color: #242424;
+	color: #ffffff;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	line-height: 1.6;
+	box-sizing: border-box;
 }
 
 /* ul 태그를 사용했을때 생기는 기호색을 흰색으로 변경 */
@@ -21,13 +31,15 @@ ul li::marker {
 /* 프로젝트 간략히 적으려는 블럭 안의 설정 */
 .explanation {
 	justify-items: center;
-	margin: 20px;
 	border: 1px solid black;
-	padding: 1.5rem;
 	border-radius: 10px;
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-	margin: 5px 5px;
-	background-color: gray;
+	background-color: #333333;
+	width: 40%;
+	min-height: 1%;
+	margin: 10px;
+	padding: 20px;
+	overflow: auto;
 }
 
 /* 인용문 스타일 */
@@ -58,7 +70,7 @@ ul li::marker {
 
 /* .logo {
 	height: 6em;
-  padding: 1.5em;
+	padding: 1.5em;
 	will-change: filter;
 	transition: filter 300ms;
 }

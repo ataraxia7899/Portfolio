@@ -1,6 +1,5 @@
 // import { useState } from 'react';
 import './App.css';
-import Cover from './components/Cover';
 import Title from './components/Title';
 import Basic_explanation from './components/Basic_explanation';
 import AboutMe from './components/AboutMe';
@@ -19,16 +18,25 @@ export default function App() {
 
 	return (
 		<>
-			<Cover />
 			<div style={Avoid_Cover_Style}>
 				{/* 맨위에 커버를 설치해서 겹치지 않도록 위치 조절 */}
-				<Title />
-				<Basic_explanation />
-				<AboutMe />
-				<Skills_and_Tool />
-				<Awards />
-				<Projects />
-				<Educations />
+				<div
+					style={{
+						width: '80%',
+						background: '#333333',
+						position: 'relative',
+						top: '40px',
+						paddingInline: '35px',
+					}}
+				>
+					<Title />
+					<Basic_explanation />
+					<AboutMe />
+					<Skills_and_Tool />
+					<Awards />
+					<Projects />
+					<Educations />
+				</div>
 			</div>
 		</>
 	);
