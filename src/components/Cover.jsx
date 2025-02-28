@@ -1,6 +1,6 @@
 export default function Cover() {
 	const CoverStyle = {
-		width: '132%',
+		width: '142.9%',
 		height: '14rem',
 		backgroundColor: '#ffefe3',
 		position: 'absolute',
