@@ -1,4 +1,8 @@
 # 📄 포트폴리오 프로젝트
+## ☁️ 클라우드타입을 통한 호스팅된 주소
+https://web-portfolio-m7osvj2da9ad7782.sel4.cloudtype.app/
+
+---
 
 ## 🖥️ 프로젝트 소개
 
@@ -6,8 +10,6 @@
 노션에 작성되있는 내 포트폴리오를 보면서 작성한 포트폴리오
 <br>
 보면서 작성된 것이라 비슷한 디자인으로 작업되었습니다.
-
----
 
 ## 🛠️ 기술 스택
 
@@ -27,6 +29,9 @@
 │ │ ├── Skills_And_Tools.jsx<br>
 │ │ ├── Title.jsx<br>
 │ │ ├── Projects.jsx<br>
+│ │ ├── Projects_Data<br>
+│ │ │ └── Projects_Data.jsx<br>
+│ │ ├── Project_Card.jsx<br>
 │ │ └── Educations.jsx<br>
 │ ├── assets<br>
 │ │ └── image<br>
@@ -42,6 +47,10 @@
 │ └── main.jsx<br>
 └── README.md
 
-사용한 아이콘 출처 : [Icons8](Icons8.com)
+## 📝 다음에 할 작업: 
+1. Projects 에 Card 컴포넌트를 클릭했을때 자세한 정보를 표시해주는 팝업창을 표시할 예정
 
-다음에 할 작업: Projects 에 Card 컴포넌트를 클릭했을때 자세한 정보를 표시해주는 팝업창을 표시할 예정
+<br>
+<hr>
+
+사용한 아이콘 출처 : [Icons8](Icons8.com)
