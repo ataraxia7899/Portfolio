@@ -52,8 +52,6 @@ https://bjh-portfolio.netlify.app/
 
 ## 📝 다음에 할 작업:
 
-1. Projects 에 Card 컴포넌트를 클릭했을때 자세한 정보를 표시해주는 팝업창을 표시할 예정
-
 <br>
 <hr>
 
