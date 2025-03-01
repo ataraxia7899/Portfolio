@@ -2,8 +2,9 @@
 	color-scheme: light dark;
 	color: rgba(255, 255, 255, 0.87);
 	background-color: #191919;
-	/* margin-top: 20px; */
-	margin: 0 15%;
+	margin: 0;
+	padding: 0 5%; /* 좌우 여백만 설정 */
+	min-width: 320px; /* 최소 너비 설정 */
 }
 
 /* 원래 배경색 #242424 */

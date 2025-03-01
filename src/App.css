@@ -23,20 +23,23 @@ ul li::marker {
 
 /* 프로젝트 간략히 적으려는 블럭 */
 .explanation_Card {
-	display: flex;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 	flex-wrap: wrap;
 	justify-content: space-between;
 	gap: 20px;
-	width: 95%;
+	width: 100%;
+	max-width: 1200px;
+	margin: 0 auto;
 	padding: 10px;
 }
 
 /* 프로젝트 간략히 적으려는 블럭 안의 설정 */
 .explanation {
-	border: 1px solid black;
+	border: 2px solid silver;
 	border-radius: 10px;
 	background-color: #333333;
-	width: calc(45% - 20px);
+	gap: 2rem; /* 간격 증가 */
 	padding: 20px;
 	cursor: pointer;
 	transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -45,6 +48,14 @@ ul li::marker {
 .explanation:hover {
 	transform: translateY(-5px);
 	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* 미디어 쿼리 추가 - 화면 크기에 따른 반응형 처리 */
+@media (max-width: 768px) {
+	.explanation_Card {
+		grid-template-columns: 1fr; /* 모바일에서는 1열로 변경 */
+		gap: 1rem;
+	}
 }
 
 /* 인용문 스타일 */

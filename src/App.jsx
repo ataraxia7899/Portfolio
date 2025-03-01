@@ -14,6 +14,8 @@ export default function App() {
 	const Avoid_Cover_Style = {
 		position: 'absolute',
 		top: '215px',
+		width: '100%', // 너비 추가
+		minWidth: '320px', // 최소 너비
 	};
 
 	return (
@@ -22,12 +24,14 @@ export default function App() {
 				{/* 맨위에 커버를 설치해서 겹치지 않도록 위치 조절 */}
 				<div
 					style={{
-						width: '81%',
+						width: '90%', // 81%에서 90%로 변경
+						maxWidth: '1200px', // 최대 너비
 						background: '#333333',
 						position: 'relative',
 						top: '35px',
 						paddingInline: '35px',
 						paddingBottom: '25px',
+						margin: '0 auto', // 중앙 정렬
 					}}
 				>
 					<Title />

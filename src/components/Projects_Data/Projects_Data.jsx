@@ -44,6 +44,13 @@ export default function Projects_Data() {
 				'디스코드란 앱을 자주 사용하는데 만들어보고 싶어서 기능 하나씩 추가해보면서 만들어보았습니다.',
 			url: 'https://github.com/ataraxia7899/discord_music_bot',
 		},
+		{
+			name: '포트폴리오 작성',
+			date: '2025년 2월 25일',
+			explain:
+				'기존에 노션에 작성한 포트폴리오를 React코드를 이용해 직접 웹페이지로 만들어본 프로젝트',
+			url: 'https://github.com/ataraxia7899/Portfolio',
+		},
 	];
 	return <Project_Card Card_data={Card_data} />;
 }
