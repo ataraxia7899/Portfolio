@@ -20,6 +20,8 @@ https://bjh-portfolio.netlify.app/
 ## 📂 디렉토리 구조
 
 📦 프로젝트 루트<br>
+├── public/
+│ └── preview.jpeg // 이미지 파일
 ├── src<br>
 │ ├── components<br>
 │ │ ├── AboutMe.jsx<br>
@@ -45,6 +47,7 @@ https://bjh-portfolio.netlify.app/
 │ ├── App.css<br>
 │ ├── index.css<br>
 │ └── main.jsx<br>
+├── index.html // 메타 태그가 있는 파일
 └── README.md
 
 ## 📝 다음에 할 작업:
