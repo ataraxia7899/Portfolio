@@ -5,6 +5,7 @@
 	margin: 0;
 	padding: 0 5%; /* 좌우 여백만 설정 */
 	min-width: 320px; /* 최소 너비 설정 */
+	margin-left: 30;
 }
 
 /* 원래 배경색 #242424 */

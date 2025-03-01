@@ -24,14 +24,14 @@ export default function App() {
 				{/* 맨위에 커버를 설치해서 겹치지 않도록 위치 조절 */}
 				<div
 					style={{
-						width: '90%', // 81%에서 90%로 변경
-						maxWidth: '1200px', // 최대 너비
+						width: '80%', // 더 나은 균형감을 위해 조정된 너비
+						maxWidth: '1200px',
 						background: '#333333',
 						position: 'relative',
-						top: '35px',
-						paddingInline: '35px',
-						paddingBottom: '25px',
-						margin: '0 auto', // 중앙 정렬
+						top: '10px',
+						padding: '0 40px 25px',
+						margin: '0 auto', // div를 수평으로 중앙 정렬
+						boxSizing: 'border-box', // 너비 계산에 패딩 포함
 					}}
 				>
 					<Title />
