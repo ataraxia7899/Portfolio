@@ -34,6 +34,7 @@ export default function Skills_and_Tool() {
 					style={{ width: '20px', height: '20px' }}
 				/>{' '}
 				<b>Skills and Tools</b>
+				<hr style={{ width: '100%', margin: '10px 0' }} />
 			</p>
 			<table
 				className="table"

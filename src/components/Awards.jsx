@@ -26,6 +26,7 @@ export default function Awards() {
 					style={{ width: '20px', height: '20px' }}
 				/>{' '}
 				<b>Awards</b>
+				<hr style={{ width: '100%', margin: '10px 0' }} />
 			</p>
 			<table
 				className="table"

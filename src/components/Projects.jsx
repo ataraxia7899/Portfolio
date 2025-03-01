@@ -12,6 +12,7 @@ export default function Projects() {
 					style={{ width: '20px', height: '20px' }}
 				/>{' '}
 				<b>Projects</b>
+				<hr style={{ width: '100%', margin: '10px 0' }} />
 			</p>
 			<Project_Data />
 		</div>
