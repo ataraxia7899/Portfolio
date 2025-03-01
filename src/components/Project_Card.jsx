@@ -1,39 +1,138 @@
+import { useState } from 'react';
 import './Projects_Data/Projects_Data';
-/* Project.jsx에서 값을 불러옴 */
 
 export default function Project_Card(props) {
-	const nameStyle = { fontSize: '20px', fontWeight: 'bold' };
+	const [selectedProject, setSelectedProject] = useState(null);
 
+	const nameStyle = { fontSize: '20px', fontWeight: 'bold' };
 	const dateStyle = {
 		fontSize: '12px',
 		fontWeight: 'bold',
 		color: '#989898',
 	};
-
+	const skillsStyle = { fontSize: '12px', backgroundColor: '#7b415d' };
 	const explainStyle = { fontSize: '13px' };
 
+	// 모달 스타일
+	const modalStyle = {
+		display: selectedProject !== null ? 'flex' : 'none',
+		position: 'fixed',
+		top: 0,
+		left: 0,
+		width: '100%',
+		height: '100%',
+		backgroundColor: 'rgba(0, 0, 0, 0.8)',
+		justifyContent: 'center',
+		alignItems: 'center',
+		zIndex: 1000,
+		backdropFilter: 'blur(5px)',
+	};
+
+	const modalContentStyle = {
+		backgroundColor: '#2a2a2a',
+		padding: '40px', // 패딩 증가
+		borderRadius: '15px',
+		width: '90%', // 너비 증가
+		maxWidth: '800px', // 최대 너비 증가
+		maxHeight: '90vh', // 최대 높이 증가
+		overflow: 'auto',
+		boxShadow: '0 0 20px rgba(0, 0, 0, 0.3)',
+		border: '1px solid #444',
+		animation: 'modalFade 0.3s ease-in-out',
+		'@keyframes modalFade': {
+			from: { opacity: 0, transform: 'translateY(-20px)' },
+			to: { opacity: 1, transform: 'translateY(0)' },
+		},
+		color: '#fff',
+	};
+
+	const handleClick = (index) => {
+		setSelectedProject(props.Card_data[index]);
+	};
+
+	const closeModal = () => {
+		setSelectedProject(null);
+	};
+
+	// 전용 마크다운 라이브러리 사용용
+	const createMarkup = (htmlContent) => {
+		return { __html: htmlContent };
+	};
+
 	return (
-		<div>
+		<>
 			<div className="explanation_Card">
 				{props.Card_data.map((item, index) => (
-					<div key={index} className={'explanation'}>
+					<div
+						key={index}
+						className="explanation"
+						onClick={() => handleClick(index)}
+					>
 						<text style={nameStyle}>{item.name || '-내용없음-'}</text>
 						<br />
 						<text style={dateStyle}>{item.date || '-내용없음-'}</text>
 						<br />
+						{/* ↓ 사용 스킬 하나씩 출력되도록 하는 로직 ↓ */}
+						{Array.isArray(item.skills) ? (
+							<div style={{ display: 'flex', gap: '5px', marginBottom: '5px' }}>
+								{item.skills.map((skill, skillIndex) => (
+									<span
+										key={skillIndex}
+										style={{
+											...skillsStyle,
+											padding: '2px 5px',
+											borderRadius: '4px',
+											color: 'white',
+										}}
+									>
+										{skill}
+									</span>
+								))}
+							</div>
+						) : (
+							item.skills && (
+								<>
+									<text style={skillsStyle}>{item.skills}</text>
+									<br />
+								</>
+							)
+						)}
 						<text style={explainStyle}>{item.explain || '-내용없음-'}</text>
 						<br />
 						<a
 							href={item.url || ''}
-							target="_blank" // 새 탭에서 링크 열기
-							rel="noopener noreferrer" // 보안을 위한 속성 추가
+							target="_blank"
+							rel="noopener noreferrer"
 							style={{ fontSize: '11px' }}
+							onClick={(e) => e.stopPropagation()}
 						>
 							{item.url || '-내용없음-'}
 						</a>
 					</div>
 				))}
 			</div>
-		</div>
+
+			{/* 모달 팝업 */}
+			<div style={modalStyle} onClick={closeModal}>
+				<div style={modalContentStyle} onClick={(e) => e.stopPropagation()}>
+					<h2>{selectedProject?.name}</h2>
+					<p style={{ color: '#989898' }}>{selectedProject?.date}</p>
+					<div
+						dangerouslySetInnerHTML={createMarkup(
+							selectedProject?.detail_explain || selectedProject?.explain
+						)}
+						style={{ margin: '20px 0' }}
+					/>
+					<a
+						href={selectedProject?.url}
+						target="_blank"
+						rel="noopener noreferrer"
+						style={{ color: '#4a9eff' }}
+					>
+						GitHub 저장소 방문
+					</a>
+				</div>
+			</div>
+		</>
 	);
 }
