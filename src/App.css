@@ -25,22 +25,26 @@ ul li::marker {
 .explanation_Card {
 	display: flex;
 	flex-wrap: wrap;
-	/* padding: 10px; */
-	/* background-color: gray; */
+	justify-content: space-between;
+	gap: 20px;
+	width: 95%;
+	padding: 10px;
 }
 
 /* 프로젝트 간략히 적으려는 블럭 안의 설정 */
 .explanation {
-	justify-items: center;
 	border: 1px solid black;
 	border-radius: 10px;
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 	background-color: #333333;
-	width: 41%;
-	min-height: 1%;
-	margin: 10px;
+	width: calc(45% - 20px);
 	padding: 20px;
-	overflow: auto;
+	cursor: pointer;
+	transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.explanation:hover {
+	transform: translateY(-5px);
+	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 /* 인용문 스타일 */

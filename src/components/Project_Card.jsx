@@ -3,17 +3,20 @@ import './Projects_Data/Projects_Data';
 
 export default function Project_Card(props) {
 	const nameStyle = { fontSize: '20px', fontWeight: 'bold' };
+
 	const dateStyle = {
 		fontSize: '12px',
 		fontWeight: 'bold',
 		color: '#989898',
 	};
+
 	const explainStyle = { fontSize: '13px' };
+
 	return (
 		<div>
 			<div className="explanation_Card">
 				{props.Card_data.map((item, index) => (
-					<div key={index} className="explanation">
+					<div key={index} className={'explanation'}>
 						<text style={nameStyle}>{item.name || '-내용없음-'}</text>
 						<br />
 						<text style={dateStyle}>{item.date || '-내용없음-'}</text>
