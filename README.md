@@ -1,8 +1,8 @@
 # 📄 포트폴리오 프로젝트
-## ☁️ 클라우드타입을 통한 호스팅된 주소
-https://web-portfolio-m7osvj2da9ad7782.sel4.cloudtype.app/
 
----
+## ☁️ netlify를 통한 호스팅된 주소 [![Netlify Status](https://api.netlify.com/api/v1/badges/d7d0acfd-2fd6-4d44-a64c-f3bb4b2196ae/deploy-status)](https://app.netlify.com/sites/bjh-portfolio/deploys)
+
+https://bjh-portfolio.netlify.app/
 
 ## 🖥️ 프로젝트 소개
 
@@ -47,7 +47,8 @@ https://web-portfolio-m7osvj2da9ad7782.sel4.cloudtype.app/
 │ └── main.jsx<br>
 └── README.md
 
-## 📝 다음에 할 작업: 
+## 📝 다음에 할 작업:
+
 1. Projects 에 Card 컴포넌트를 클릭했을때 자세한 정보를 표시해주는 팝업창을 표시할 예정
 
 <br>
