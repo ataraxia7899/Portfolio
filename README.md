@@ -29,6 +29,9 @@ https://web-portfolio-m7osvj2da9ad7782.sel4.cloudtype.app/
 │ │ ├── Skills_And_Tools.jsx<br>
 │ │ ├── Title.jsx<br>
 │ │ ├── Projects.jsx<br>
+│ │ ├── Projects_Data<br>
+│ │ │ └── Projects_Data.jsx<br>
+│ │ ├── Project_Card.jsx<br>
 │ │ └── Educations.jsx<br>
 │ ├── assets<br>
 │ │ └── image<br>
