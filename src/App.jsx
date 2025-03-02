@@ -15,6 +15,7 @@ export default function App() {
 		position: 'absolute',
 		top: '215px',
 		width: '100%', // 너비 추가
+		padding: '0 10px', // 모바일 여백 추가
 		minWidth: '320px', // 최소 너비
 	};
 

@@ -85,15 +85,36 @@ ul li::marker {
 	background-color: #737368;
 }
 
-/* .logo {
-	height: 6em;
-	padding: 1.5em;
-	will-change: filter;
-	transition: filter 300ms;
+/* 기존 스타일 유지 */
+
+/* 모바일 대응 미디어 쿼리 */
+@media screen and (max-width: 768px) {
+	#root {
+		margin-left: 0; /* 모바일에서는 좌측 여백 제거 */
+		padding: 0.5rem; /* 패딩 축소 */
+	}
+
+	.explanation_Card {
+		grid-template-columns: 1fr; /* 한 열로 변경 */
+		gap: 15px;
+		padding: 5px;
+	}
+
+	.explanation {
+		width: 100%; /* 전체 너비 사용 */
+		margin: 0;
+		padding: 15px;
+	}
+
+	.table {
+		width: 100%; /* 테이블 전체 너비 */
+		font-size: 0.9rem; /* 글자 크기 축소 */
+	}
 }
-.logo:hover {
-	filter: drop-shadow(0 0 2em #646cffaa);
+
+/* iOS Safari 대응 */
+@supports (-webkit-touch-callout: none) {
+	#root {
+		padding-bottom: env(safe-area-inset-bottom);
+	}
 }
-.logo.react:hover {
-	filter: drop-shadow(0 0 2em #61dafbaa);
-} */
