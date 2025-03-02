@@ -36,16 +36,16 @@ export default function App() {
 		maxWidth: 'none',
 		background: '#333333',
 		position: 'relative',
-		top: '-215px',
+		top: '10px',
 		left: '65px',
 		minHeight: '100vh',
-		borderRadius: '25px 25px 0 0',
 		padding: '0 40px 25px',
 		boxSizing: 'border-box',
 		overflowX: 'hidden',
 	};
 
-	const contentStyle = window.innerWidth <= 768 ? mobileContentStyle : desktopContentStyle;
+	const contentStyle =
+		window.innerWidth <= 768 ? mobileContentStyle : desktopContentStyle;
 
 	return (
 		<>

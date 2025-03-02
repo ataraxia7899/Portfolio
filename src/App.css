@@ -91,21 +91,21 @@ ul li::marker {
 /* 모바일 대응 미디어 쿼리 */
 @media screen and (max-width: 768px) {
 	#root {
-		/* margin: 0; /* 모바일에서는 여백 제거 */
-		padding: 0.5rem; /* 패딩 축소 */
-		/* width: 100%; */
+		padding: 0.2rem; /* 패딩 축소 */
+		width: 100%;
 	}
 
 	.explanation_Card {
-		/* grid-template-columns: 1fr; /* 한 열로 변경 */
-		/* gap: 15px; */
+		grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+		gap: 20px;
+		width: 90%;
+		max-width: 1200px;
+		margin: 0 auto;
 		padding: 10px;
-		width: 100%;
-		margin: 0;
 	}
 
 	.explanation {
-		width: 100%; /* 전체 너비 사용 */
+		width: 93%;
 		margin: 0;
 		padding: 15px;
 	}
