@@ -90,14 +90,17 @@ ul li::marker {
 /* 모바일 대응 미디어 쿼리 */
 @media screen and (max-width: 768px) {
 	#root {
-		margin-left: 0; /* 모바일에서는 좌측 여백 제거 */
+		margin: 0; /* 모바일에서는 여백 제거 */
 		padding: 0.5rem; /* 패딩 축소 */
+		width: 100%;
 	}
 
 	.explanation_Card {
-		grid-template-columns: 1fr; /* 한 열로 변경 */
-		gap: 15px;
-		padding: 5px;
+		/* grid-template-columns: 1fr; /* 한 열로 변경 */
+		/* gap: 15px; */
+		padding: 10px;
+		width: 100%;
+		margin: 0;
 	}
 
 	.explanation {
