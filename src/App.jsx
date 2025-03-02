@@ -32,10 +32,8 @@ export default function App() {
 		'@media screen and (max-width: 768px)': {
 			width: '100%',
 			maxWidth: 'none',
-			margin: '0',
-			padding: '20px',
-			position: 'relative',
 			top: '-215px', // 커버 높이만큼 위로 이동
+			left: '65px',
 			minHeight: '100vh', // 전체 화면 높이
 			borderRadius: '25px 25px 0 0', // 상단 모서리만 둥글게
 		},
