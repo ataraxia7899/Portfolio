@@ -34,6 +34,11 @@ export default function App() {
 						margin: '0 auto', // div를 수평으로 중앙 정렬
 						boxSizing: 'border-box', // 너비 계산에 패딩 포함
 						overflowX: 'hidden', // 가로 스크롤 방지
+						['@media (max-width: 768px)']: {
+							// 모바일 환경
+							width: '100%',
+							padding: '0 10px 25px',
+						},
 					}}
 				>
 					<Title />
