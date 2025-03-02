@@ -14,6 +14,7 @@
 	line-height: 1.4;
 	box-sizing: border-box;
 	margin-left: -100px;
+	overflow-x: hidden;
 }
 
 /* ul 태그를 사용했을때 생기는 기호색을 흰색으로 변경 */
@@ -90,9 +91,9 @@ ul li::marker {
 /* 모바일 대응 미디어 쿼리 */
 @media screen and (max-width: 768px) {
 	#root {
-		margin: 0; /* 모바일에서는 여백 제거 */
+		/* margin: 0; /* 모바일에서는 여백 제거 */
 		padding: 0.5rem; /* 패딩 축소 */
-		width: 100%;
+		/* width: 100%; */
 	}
 
 	.explanation_Card {

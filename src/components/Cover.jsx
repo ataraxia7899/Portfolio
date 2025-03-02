@@ -13,6 +13,7 @@ export default function Cover() {
 		top: '0', // 맨위로
 		maxWidth: '100%', // 최대 너비 제한
 		boxSizing: 'border-box', // 패딩과 보더를 너비에 포함
+		overflow: 'hidden',
 	};
 
 	return <div style={CoverStyle} />;
