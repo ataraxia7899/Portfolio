@@ -33,6 +33,7 @@ export default function App() {
 						padding: '0 40px 25px',
 						margin: '0 auto', // div를 수평으로 중앙 정렬
 						boxSizing: 'border-box', // 너비 계산에 패딩 포함
+						overflowX: 'hidden', // 가로 스크롤 방지
 					}}
 				>
 					<Title />
