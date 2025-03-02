@@ -74,7 +74,14 @@ export default function Project_Card(props) {
 						<br />
 						{/* ↓ 사용 스킬 하나씩 출력되도록 하는 로직 ↓ */}
 						{Array.isArray(item.skills) ? (
-							<div style={{ display: 'flex', gap: '5px', marginBottom: '5px' }}>
+							<div
+								style={{
+									display: 'flex',
+									gap: '5px',
+									marginBottom: '5px',
+									overflow: 'hidden',
+								}}
+							>
 								{item.skills.map((skill, skillIndex) => (
 									<span
 										key={skillIndex}
@@ -83,6 +90,9 @@ export default function Project_Card(props) {
 											padding: '2px 5px',
 											borderRadius: '4px',
 											color: 'white',
+											whiteSpace: 'nowrap',
+											overflow: 'hidden',
+											textOverflow: 'ellipsis',
 										}}
 									>
 										{skill}
@@ -92,18 +102,43 @@ export default function Project_Card(props) {
 						) : (
 							item.skills && (
 								<>
-									<text style={skillsStyle}>{item.skills}</text>
+									<text
+										style={{
+											...skillsStyle,
+											overflow: 'hidden',
+											textOverflow: 'ellipsis',
+											whiteSpace: 'nowrap',
+										}}
+									>
+										{item.skills}
+									</text>
 									<br />
 								</>
 							)
 						)}
-						<text style={explainStyle}>{item.explain || '-내용없음-'}</text>
+						<text
+							style={{
+								...explainStyle,
+								overflow: 'hidden',
+								textOverflow: 'ellipsis',
+								whiteSpace: 'nowrap',
+								display: 'block',
+							}}
+						>
+							{item.explain || '-내용없음-'}
+						</text>
 						<br />
 						<a
 							href={item.url || ''}
 							target="_blank"
 							rel="noopener noreferrer"
-							style={{ fontSize: '11px' }}
+							style={{
+								fontSize: '11px',
+								overflow: 'hidden',
+								textOverflow: 'ellipsis',
+								whiteSpace: 'nowrap',
+								display: 'block',
+							}}
 							onClick={(e) => e.stopPropagation()}
 						>
 							{item.url || '-내용없음-'}
