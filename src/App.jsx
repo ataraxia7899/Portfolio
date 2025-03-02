@@ -19,25 +19,33 @@ export default function App() {
 		minWidth: '320px', // 최소 너비
 	};
 
-	const contentStyle = {
-		width: '80%', // 더 나은 균형감을 위해 조정된 너비
+	const desktopContentStyle = {
+		width: '80%',
 		maxWidth: '1200px',
 		background: '#333333',
 		position: 'relative',
 		top: '10px',
 		padding: '0 40px 25px',
-		margin: '0 auto', // div를 수평으로 중앙 정렬
-		boxSizing: 'border-box', // 너비 계산에 패딩 포함
-		overflowX: 'hidden', // 가로 스크롤 방지
-		'@media screen and (max-width: 768px)': {
-			width: '100%',
-			maxWidth: 'none',
-			top: '-215px', // 커버 높이만큼 위로 이동
-			left: '65px',
-			minHeight: '100vh', // 전체 화면 높이
-			borderRadius: '25px 25px 0 0', // 상단 모서리만 둥글게
-		},
+		margin: '0 auto',
+		boxSizing: 'border-box',
+		overflowX: 'hidden',
 	};
+
+	const mobileContentStyle = {
+		width: '100%',
+		maxWidth: 'none',
+		background: '#333333',
+		position: 'relative',
+		top: '-215px',
+		left: '65px',
+		minHeight: '100vh',
+		borderRadius: '25px 25px 0 0',
+		padding: '0 40px 25px',
+		boxSizing: 'border-box',
+		overflowX: 'hidden',
+	};
+
+	const contentStyle = window.innerWidth <= 768 ? mobileContentStyle : desktopContentStyle;
 
 	return (
 		<>
