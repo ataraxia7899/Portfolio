@@ -78,6 +78,7 @@ https://bjh-portfolio.netlify.app/
 │ │ ├── Projects_Data<br>
 │ │ │ └── Projects_Data.jsx<br>
 │ │ ├── Project_Card.jsx<br>
+│ │ ├── ScrollIndicator.jsx<br>
 │ │ └── Educations.jsx<br>
 │ ├── assets<br>
 │ │ └── image<br>
