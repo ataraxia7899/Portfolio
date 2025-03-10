@@ -16,13 +16,19 @@ export default function ScrollIndicator() {
 		});
 	}, []);
 
+	/* 디바운스란 연이어 호출되는 함수들 중 마지막 함수(또는 제일 처음)만 호출하도록 하는 것 */
 	useEffect(() => {
+		// 디바운스 처리를 위한 타이머 ID
 		let timeoutId = null;
 		const debouncedScroll = () => {
 			if (timeoutId) {
+				// 이전에 예약된 애니메이션 프레임이 있다면 취소
 				window.cancelAnimationFrame(() => onScroll());
 			}
 			timeoutId = window.requestAnimationFrame(() => onScroll());
+			// 새로운 애니메이션 프레임 예약
+			// requestAnimationFrame은 브라우저의 다음 리페인트 전에
+			// 실행될 콜백을 예약하여 부드러운 애니메이션 구현
 		};
 
 		window.addEventListener('scroll', debouncedScroll, { passive: true });
@@ -40,6 +46,7 @@ export default function ScrollIndicator() {
 				style={{ width: `${scroll}%`, transition: 'width 0.1s ease-out' }}
 				className="scroll_indicator"
 			/>
+			{/* `${scroll}%`는 템플릿 리터럴을 사용하여 스크롤 진행률을 동적으로 너비에 적용하는 코드 */}
 		</div>
 	);
 }
