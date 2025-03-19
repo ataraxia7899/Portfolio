@@ -106,7 +106,7 @@ export default function Projects_Data() {
 			name: '크롬 확장프로그램(영상 배속)',
 			date: '2025년 3월 16일',
 			skills: ['JavaScript'],
-			explain: '',
+			explain: '웹사이트 영상 배속 확장프로그램',
 			detail_explain: `
 				크롬과 같은 크로미움 기반 브라우저를 평소에 사용하는데 어떤 영상이든 원할때 배속하거나 <br/>
 				배속을 자주 쓰는 사이트의 경우엔 자동으로 배속이 활성화되도록 ai의 도움을 받아 제작하게되었습니다.<br/><br/>
