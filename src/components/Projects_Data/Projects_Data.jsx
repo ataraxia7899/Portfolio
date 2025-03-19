@@ -98,7 +98,7 @@ export default function Projects_Data() {
 			아직은 값이 그래도 그렇게 많지는 않아서 React를 통해 모든 것을 진행했는데<br/>
 			다음에 값이 더 많아지면 백엔드와 DB를 통해 값을 서버와 주고 받는 식으로도 도전해볼 예정입니다.<br/><br/>
 
-			<strong>현재 netlify를 통해 24시간 호스팅을 실행중</strong>[![Netlify Status](https://api.netlify.com/api/v1/badges/d7d0acfd-2fd6-4d44-a64c-f3bb4b2196ae/deploy-status)](https://app.netlify.com/sites/bjh-portfolio/deploys)
+			<strong>현재 netlify를 통해 24시간 호스팅을 실행중</strong>
 			`,
 			url: 'https://github.com/ataraxia7899/Portfolio',
 		},
