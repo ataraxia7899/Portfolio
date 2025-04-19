@@ -4,19 +4,23 @@
   "version": "0.0.0",
   "type": "commonjs",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite dev",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "start": "node server.js"
   },
   "dependencies": {
     "@azure/app-configuration": "^1.9.0",
     "@azure/identity": "^4.9.0",
     "@azure/keyvault-secrets": "^4.9.0",
+    "@types/dompurify": "^3.0.5",
+    "dompurify": "^3.2.5",
+    "express": "^4.18.2",
     "oci-common": "^2.107.1",
     "oci-objectstorage": "^2.107.1",
     "oci-secrets": "^2.107.1",
-    "oracledb": "^6.8.0",
+    "oracledb": "^5.5.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
