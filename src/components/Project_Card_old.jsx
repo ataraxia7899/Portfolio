@@ -1,3 +1,5 @@
+/* 텍스트를 객체로 불러와 웹사이트에서 텍스트를 출력해주는 코드, DB를 사용하면서 안쓰게 됨 */
+/*
 import { useState } from 'react';
 import './Projects_Data/Projects_Data';
 
@@ -171,3 +173,4 @@ export default function Project_Card(props) {
 		</>
 	);
 }
+*/
