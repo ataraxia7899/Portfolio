@@ -1,6 +1,6 @@
 import '../App.css';
 import projects_png from '../assets/image/projects.png';
-import Project_Data from './Projects_Data/Projects_Data';
+import Project_Data from './Projects_Data/Projects_DB';
 
 export default function Projects() {
 	return (
