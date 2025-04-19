@@ -1,4 +1,4 @@
-// import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './App.css';
 import Title from './components/Title';
 import Basic_explanation from './components/Basic_explanation';
@@ -10,7 +10,16 @@ import Educations from './components/Educations';
 import ScrollIndicator from './components/ScrollIndicator';
 
 export default function App() {
-	// const [openList, setOpenList] = useState(false);
+	const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+	useEffect(() => {
+		const handleResize = () => {
+			setIsMobile(window.innerWidth <= 768);
+		};
+
+		window.addEventListener('resize', handleResize);
+		return () => window.removeEventListener('resize', handleResize);
+	}, []);
 
 	const Avoid_Cover_Style = {
 		position: 'absolute',
@@ -45,8 +54,7 @@ export default function App() {
 		overflowX: 'hidden',
 	};
 
-	const contentStyle =
-		window.innerWidth <= 768 ? mobileContentStyle : desktopContentStyle;
+	const contentStyle = isMobile ? mobileContentStyle : desktopContentStyle;
 
 	return (
 		<>
