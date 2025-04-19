@@ -81,7 +81,7 @@ export default function Projects_Data() {
 				사실 내가 편하려고 만들었던 봇에 생각보다 흥미를 불러일으켜서 
 				앞으로 더 많은 기능들을 추가할 예정입니다.<br/><br/>
 				
-				<strong>현재 구글 클라우드를 통해 24시간 호스팅을 실행중</strong>
+				<strong>구글 클라우드를 통해 24시간 호스팅을 실행중이였는데 비용때문에 봇 호스팅 정지중</strong>
 			`,
 			url: 'https://github.com/ataraxia7899/discord_music_bot',
 		},
