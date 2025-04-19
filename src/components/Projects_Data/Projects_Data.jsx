@@ -1,3 +1,5 @@
+/* 텍스트를 객체로 불러와 웹사이트에서 텍스트를 출력해주는 코드, DB를 사용하면서 안쓰게 됨 */
+/*
 import Project_Card from '../Project_Card';
 
 export default function Projects_Data() {
@@ -127,3 +129,4 @@ export default function Projects_Data() {
 	];
 	return <Project_Card Card_data={Card_data} />;
 }
+*/
