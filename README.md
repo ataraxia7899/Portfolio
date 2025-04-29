@@ -57,9 +57,18 @@ https://bjh-portfolio.netlify.app/
 
 ## 🛠️ 기술 스택
 
-- **React**: 웹사이트의 주요 로직 구현.
-- **CSS**: 스타일링 및 레이아웃 관리.
-- **JavaScript**: 동적 기능 구현.
+### Frontend
+- **React**: 웹사이트의 UI 컴포넌트 구현
+- **CSS**: 반응형 디자인 및 스타일링
+- **JavaScript (ES6+)**: 동적 기능 구현
+
+### Backend
+- **Node.js**: Netlify Functions를 통한 서버리스 백엔드 구현
+- **Oracle Database**: 프로젝트 데이터 저장 및 관리
+
+### DevOps
+- **Netlify**: CI/CD 파이프라인 및 호스팅
+- **Git**: 버전 관리
 
 ## 📂 디렉토리 구조
 
@@ -95,9 +104,37 @@ https://bjh-portfolio.netlify.app/
 ├── index.html // 메타 태그가 있는 파일
 └── README.md
 
+## 🔧 설치 및 실행
+
+```bash
+# 저장소 클론
+git clone https://github.com/ataraxia7899/Portfolio.git
+
+# 종속성 설치
+npm install
+
+# 개발 서버 실행
+npm run dev
+
+# 프로덕션 빌드
+npm run build
+```
+
 ## 📝 다음에 할 작업:
+
+- **Oracle 데이터베이스와 연동 작업 (진행 중)**  
+  1. **오라클 데이터베이스 생성**  
+     - Oracle 클라우드를 이용해 데이터베이스 생성 완료.
+  2. **React와 Oracle 데이터베이스 간의 연결**  
+     - Netlify Functions를 사용해 서버리스 형태로 연결하는 코드 작성 완료.  
+     - Netlify의 무료 24시간 호스팅 서버를 활용.
+  3. **값 불러오기 확인 작업**  
+     - ACL 설정 문제로 인해 연결 실패 확인.  
+     - OAuth 인증을 통해 DB 연동을 시도했으나, ACL 활성화로 인해 네트워크(ACL) → 애플리케이션(OAuth) 순서로 필터링되어 연결 불가 상황 발생.  
+     - 다음 작업: OAuth 연동 기능을 유지하면서 ACL을 비활성화하는 방법을 시도할 예정.
 
 <br>
 <hr>
 
 사용한 아이콘 출처 : [Icons8](Icons8.com)
+
