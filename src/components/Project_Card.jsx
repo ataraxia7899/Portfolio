@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import './Projects_Data/Projects_Data';
+// import './Projects_Data/Projects_Data';
 
 export default function Project_Card(props) {
 	const [selectedProject, setSelectedProject] = useState(null);
