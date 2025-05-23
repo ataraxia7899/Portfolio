@@ -1,29 +1,63 @@
+import { useState, useEffect } from 'react';
 import '../App.css';
 import pick_png from '../assets/image/pick.png';
 
 export default function Skills_and_Tool() {
+	const [skillsData, setSkillsData] = useState([]);
+	const [loading, setLoading] = useState(true);
+	const [error, setError] = useState(null);
+
 	const ChartStyle = {
 		marginTop: '35px',
 		// alignItems: 'center',
 	};
 
-	// 구분할 항목들을 배열로 관리
-	const fields = ['Language', 'Frontend', 'RDBMS', 'DevOps'];
+	// 데이터 가져오기 함수
+	const fetchSkillsData = async () => {
+		try {
+			setLoading(true);
+			const response = await fetch('http://localhost:8080/skills');
 
-	// 데이터 배열
-	const data = [
-		{ often: 2, field: 'Language', name: 'Java' },
-		{ often: 1, field: 'Language', name: 'Python' },
-		{ often: 2, field: 'Language', name: 'C++' },
-		{ often: 2, field: 'Language', name: 'C' },
-		{ often: 2, field: 'Language', name: 'node.js' },
-		{ often: 2, field: 'Language', name: 'javaScript' },
-		{ often: 2, field: 'Frontend', name: 'html&CSS' },
-		{ often: 1, field: 'Frontend', name: 'React' },
-		{ often: 1, field: 'RDBMS', name: 'MySQL' },
-		{ often: 2, field: 'RDBMS', name: 'Oracle' },
-		{ often: 1, field: 'DevOps', name: 'Git' },
-	];
+			if (!response.ok) {
+				throw new Error(`HTTP error! status: ${response.status}`);
+			}
+
+			const data = await response.json();
+			setSkillsData(data);
+		} catch (err) {
+			setError(err.message);
+			console.error('Skills 데이터 로딩 실패:', err);
+		} finally {
+			setLoading(false);
+		}
+	};
+
+	// 컴포넌트 마운트 시 데이터 로드
+	useEffect(() => {
+		fetchSkillsData();
+	}, []);
+
+	// 데이터에서 고유한 field 값들을 동적으로 추출
+	const fields = [...new Set(skillsData.map((item) => item.field))];
+
+	// 로딩 상태 처리
+	if (loading) {
+		return (
+			<div style={ChartStyle}>
+				<p>Skills 데이터 로딩 중...</p>
+			</div>
+		);
+	}
+
+	// 에러 상태 처리
+	if (error) {
+		return (
+			<div style={ChartStyle}>
+				<p>Skills 데이터를 불러오는데 실패했습니다: {error}</p>
+				<button onClick={fetchSkillsData}>다시 시도</button>
+			</div>
+		);
+	}
 
 	return (
 		<div style={ChartStyle}>
@@ -57,10 +91,10 @@ export default function Skills_and_Tool() {
 
 							{/* 많이 해봤어요 열 */}
 							<td style={{ maxHeight: '50px', overflowY: 'auto' }}>
-								{data
-									.filter((item) => item.field === field && item.often === 1) // 조건에 맞는 항목 필터링
+								{skillsData
+									.filter((item) => item.field === field && item.often === 1)
 									.map((item, index) => (
-										<span key={index}>
+										<span key={item.id || index}>
 											{index > 0 && ', '}
 											{item.name}
 										</span>
@@ -69,8 +103,8 @@ export default function Skills_and_Tool() {
 
 							{/* 해본 적 있어요 열 */}
 							<td style={{ maxHeight: '50px', overflowY: 'auto' }}>
-								{data
-									.filter((item) => item.field === field && item.often === 2) // 조건에 맞는 항목 필터링
+								{skillsData
+									.filter((item) => item.field === field && item.often === 2)
 									.map((item, index) => (
 										<span key={index}>
 											{index > 0 && ', '}

@@ -1,7 +1,12 @@
+import { useState, useEffect } from 'react';
 import '../App.css';
 import handup_human_png from '../assets/image/handup_human.png';
 
 export default function AboutMe() {
+	const [aboutMeData, setAboutMeData] = useState([]);
+	const [loading, setLoading] = useState(true);
+	const [error, setError] = useState(null);
+
 	const AboutMeStyle = {
 		marginTop: '35px',
 	};
@@ -13,6 +18,49 @@ export default function AboutMe() {
 		gap: '5px' /* 리스트 항목 사이의 간격 */,
 	};
 
+	// 데이터 가져오기 함수
+	const fetchAboutMeData = async () => {
+		try {
+			setLoading(true);
+			const response = await fetch('http://localhost:8080/aboutme');
+
+			if (!response.ok) {
+				throw new Error(`HTTP error! status: ${response.status}`);
+			}
+
+			const data = await response.json();
+			setAboutMeData(data);
+		} catch (err) {
+			setError(err.message);
+			console.error('About Me 데이터 로딩 실패:', err);
+		} finally {
+			setLoading(false);
+		}
+	};
+
+	// 컴포넌트 마운트 시 데이터 로드
+	useEffect(() => {
+		fetchAboutMeData();
+	}, []);
+
+	// 로딩 상태 처리
+	if (loading) {
+		return (
+			<div style={AboutMeStyle}>
+				<p>로딩 중...</p>
+			</div>
+		);
+	}
+
+	// 에러 상태 처리
+	if (error) {
+		return (
+			<div style={AboutMeStyle}>
+				<p>데이터를 불러오는데 실패했습니다: {error}</p>
+			</div>
+		);
+	}
+
 	return (
 		<div style={AboutMeStyle}>
 			<img
@@ -23,11 +71,11 @@ export default function AboutMe() {
 			<b style={{ fontSize: '1.1rem' }}>About me</b>
 			<hr style={{ width: '100%', margin: '10px 0' }} />
 			<ul style={UIStyle}>
-				<li>유지보수가 쉬운 SW를 개발하고 싶어요.</li>
-				<li>
-					항상 사용자의 입장을 생각하고 사용자 친화적인 기능을 만들고자해요.
-				</li>
-				<li>꾸준하게 관련소식을 찾아보며 항상 성장하려고 노력해요.</li>
+				{aboutMeData
+					.sort((a, b) => a.item_order - b.item_order)
+					.map((item) => (
+						<li key={item.id}>{item.description}</li>
+					))}
 			</ul>
 		</div>
 	);
