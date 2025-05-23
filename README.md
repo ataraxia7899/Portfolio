@@ -45,9 +45,9 @@ https://bjh-portfolio.netlify.app/
 - 사용자 친화적인 링크 처리 (새 탭에서 열기)
 - 깔끔한 아이콘 통합
 - 커스텀 스크롤 인디케이터
-  - 기본 스크롤바 제거로 깔끔한 UI
-  - 하단 프로그레스 바로 스크롤 진행률 표시
-  - 부드러운 애니메이션 효과
+- 기본 스크롤바 제거로 깔끔한 UI
+- 하단 프로그레스 바로 스크롤 진행률 표시
+- 부드러운 애니메이션 효과
 
 ### 6. 배포 및 호스팅
 
@@ -105,5 +105,64 @@ https://bjh-portfolio.netlify.app/
 
 - master 브랜치에서 node.js와 mariaDB를 사용해 DB값을 불러와 데이터를 출력하는 코드로 작성하게되면서 24시간 호스팅이라는 장점을 버리긴 아까워 buildNetlify 브랜치를 만들어 해당 브랜치의 코드에서 JSON을 통해 고정텍스트값으로 지속적으로 호스팅하도록 세팅했습니다.
 
+---
+
+## 🖧 백엔드 설명
+
+- **Node.js(Express)**와 **MariaDB**를 사용하여 RESTful API 서버를 구현했습니다.
+- 주요 엔드포인트:
+  - `/aboutme` : 자기소개 데이터 반환
+  - `/award` : 수상 내역 반환
+  - `/educations` : 학력 정보 반환
+  - `/project` : 프로젝트 정보 반환
+  - `/skills` : 스킬 및 도구 정보 반환
+- 모든 엔드포인트는 JSON 형식으로 데이터를 제공합니다.
+
+## 🏃‍♂️ 로컬 개발 및 실행 방법
+
+### 1. 백엔드(Node.js)
+```bash
+cd Back
+npm install
+node index.js
+```
+- MariaDB가 로컬에서 실행 중이어야 하며, `Back/index.js`의 DB 접속 정보를 환경에 맞게 수정하세요.
+
+### 2. 프론트엔드(React)
+```bash
+npm install
+npm run dev
+```
+- 기본적으로 [Vite](https://vitejs.dev/) 개발 서버가 5173번 포트에서 실행됩니다.
+
+## 🗄️ DB 테이블 구조 예시
+
+```sql
+CREATE TABLE aboutme (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  description VARCHAR(255),
+  item_order INT
+);
+
+CREATE TABLE award (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  date DATE,
+  title VARCHAR(100),
+  degree_of_award VARCHAR(100),
+  host VARCHAR(100)
+);
+
+-- 기타 테이블도 유사하게 구성
+```
+
+## 🤝 기여 방법
+
+- 이슈 등록 및 PR(Pull Request) 환영합니다.
+- 코드 컨벤션 및 커밋 메시지 규칙을 지켜주세요.
+
+## 📜 라이선스 및 연락처
+
+- 본 프로젝트는 개인 포트폴리오 용도로 작성되었습니다.
+- 문의: ataraxia7899@gmail.com
 
 사용한 아이콘 출처 : [Icons8](Icons8.com)
