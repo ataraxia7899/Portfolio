@@ -95,16 +95,6 @@ https://bjh-portfolio.netlify.app/
 ├── index.html // 메타 태그가 있는 파일
 └── README.md
 
-## 📝 다음에 할 작업:
-
-<br>
-<hr>
-
-- Netlify 함수를 사용해 서버 없이 오라클 DB의 데이터를 불러오는 코드를 작성하다 포기하고 다시 작성하게 되어<br>
-이전 작성된 코드는 백업을 위해 tryOracleDB라는 이름으로 저장하였습니다.
-
-- master 브랜치에서 node.js와 mariaDB를 사용해 DB값을 불러와 데이터를 출력하는 코드로 작성하게되면서 24시간 호스팅이라는 장점을 버리긴 아까워 buildNetlify 브랜치를 만들어 해당 브랜치의 코드에서 JSON을 통해 고정텍스트값으로 지속적으로 호스팅하도록 세팅했습니다.
-
 ---
 
 ## 🖧 백엔드 설명
@@ -121,18 +111,22 @@ https://bjh-portfolio.netlify.app/
 ## 🏃‍♂️ 로컬 개발 및 실행 방법
 
 ### 1. 백엔드(Node.js)
+
 ```bash
 cd Back
 npm install
 node index.js
 ```
+
 - MariaDB가 로컬에서 실행 중이어야 하며, `Back/index.js`의 DB 접속 정보를 환경에 맞게 수정하세요.
 
 ### 2. 프론트엔드(React)
+
 ```bash
 npm install
 npm run dev
 ```
+
 - 기본적으로 [Vite](https://vitejs.dev/) 개발 서버가 5173번 포트에서 실행됩니다.
 
 ## 🗄️ DB 테이블 구조 예시
@@ -164,5 +158,10 @@ CREATE TABLE award (
 
 - 본 프로젝트는 개인 포트폴리오 용도로 작성되었습니다.
 - 문의: ataraxia7899@gmail.com
+
+- Netlify 함수를 사용해 서버 없이 오라클 DB의 데이터를 불러오는 코드를 작성하다 포기하고 다시 작성하게 되어<br>
+  이전 작성된 코드는 백업을 위해 tryOracleDB라는 이름으로 저장하였습니다.
+
+- master 브랜치에서 node.js와 mariaDB를 사용해 DB값을 불러와 데이터를 출력하는 코드로 작성하게되면서 24시간 호스팅이라는 장점을 버리긴 아까워 buildNetlify 브랜치를 만들어 해당 브랜치의 코드에서 JSON을 통해 고정텍스트값으로 지속적으로 호스팅하도록 세팅했습니다.
 
 사용한 아이콘 출처 : [Icons8](Icons8.com)
