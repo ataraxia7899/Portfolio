@@ -100,4 +100,7 @@ https://bjh-portfolio.netlify.app/
 <br>
 <hr>
 
+- Netlify 함수를 사용해 서버 없이 오라클 DB의 데이터를 불러오는 코드를 작성하다 포기하고 다시 작성하게 되어<br>
+ 이전 작성된 코드는 백업을 위해 tryOracleDB라는 이름으로 저장하였습니다.
+
 사용한 아이콘 출처 : [Icons8](Icons8.com)
