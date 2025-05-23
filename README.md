@@ -101,6 +101,9 @@ https://bjh-portfolio.netlify.app/
 <hr>
 
 - Netlify 함수를 사용해 서버 없이 오라클 DB의 데이터를 불러오는 코드를 작성하다 포기하고 다시 작성하게 되어<br>
- 이전 작성된 코드는 백업을 위해 tryOracleDB라는 이름으로 저장하였습니다.
+이전 작성된 코드는 백업을 위해 tryOracleDB라는 이름으로 저장하였습니다.
+
+- master 브랜치에서 node.js와 mariaDB를 사용해 DB값을 불러와 데이터를 출력하는 코드로 작성하게되면서 24시간 호스팅이라는 장점을 버리긴 아까워 buildNetlify 브랜치를 만들어 해당 브랜치의 코드에서 JSON을 통해 고정텍스트값으로 지속적으로 호스팅하도록 세팅했습니다.
+
 
 사용한 아이콘 출처 : [Icons8](Icons8.com)
