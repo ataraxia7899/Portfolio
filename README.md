@@ -10,6 +10,9 @@ https://bjh-portfolio.netlify.app/
 노션에 작성되있는 내 포트폴리오를 보면서 작성한 포트폴리오
 <br>
 보면서 작성된 것이라 비슷한 디자인으로 작업되었습니다.
+<br>
+<br>
+현재 보시고 계신 브랜치는 Netlify 함수를 사용해 서버 없이 오라클 DB의 데이터를 불러오는 코드를 작성하다 포기하고 다시 작성하게 되어 백업용으로 이전 작성된 코드를 분리시켜둔 브랜치입니다.
 
 ## 📢 구현한 기능
 
@@ -57,9 +60,18 @@ https://bjh-portfolio.netlify.app/
 
 ## 🛠️ 기술 스택
 
-- **React**: 웹사이트의 주요 로직 구현.
-- **CSS**: 스타일링 및 레이아웃 관리.
-- **JavaScript**: 동적 기능 구현.
+### Frontend
+- **React**: 웹사이트의 UI 컴포넌트 구현
+- **CSS**: 반응형 디자인 및 스타일링
+- **JavaScript (ES6+)**: 동적 기능 구현
+
+### Backend
+- **Node.js**: Netlify Functions를 통한 서버리스 백엔드 구현
+- **Oracle Database**: 프로젝트 데이터 저장 및 관리
+
+### DevOps
+- **Netlify**: CI/CD 파이프라인 및 호스팅
+- **Git**: 버전 관리
 
 ## 📂 디렉토리 구조
 
@@ -95,9 +107,23 @@ https://bjh-portfolio.netlify.app/
 ├── index.html // 메타 태그가 있는 파일
 └── README.md
 
-## 📝 다음에 할 작업:
+## 🔧 설치 및 실행
 
-<br>
+```bash
+# 저장소 클론
+git clone https://github.com/ataraxia7899/Portfolio.git
+
+# 종속성 설치
+npm install
+
+# 개발 서버 실행
+npm run dev
+
+# 프로덕션 빌드
+npm run build
+```
+
 <hr>
 
 사용한 아이콘 출처 : [Icons8](Icons8.com)
+
