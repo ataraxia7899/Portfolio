@@ -45,9 +45,9 @@ https://bjh-portfolio.netlify.app/
 - 사용자 친화적인 링크 처리 (새 탭에서 열기)
 - 깔끔한 아이콘 통합
 - 커스텀 스크롤 인디케이터
-  - 기본 스크롤바 제거로 깔끔한 UI
-  - 하단 프로그레스 바로 스크롤 진행률 표시
-  - 부드러운 애니메이션 효과
+- 기본 스크롤바 제거로 깔끔한 UI
+- 하단 프로그레스 바로 스크롤 진행률 표시
+- 부드러운 애니메이션 효과
 
 ### 6. 배포 및 호스팅
 
@@ -57,18 +57,9 @@ https://bjh-portfolio.netlify.app/
 
 ## 🛠️ 기술 스택
 
-### Frontend
-- **React**: 웹사이트의 UI 컴포넌트 구현
-- **CSS**: 반응형 디자인 및 스타일링
-- **JavaScript (ES6+)**: 동적 기능 구현
-
-### Backend
-- **Node.js**: Netlify Functions를 통한 서버리스 백엔드 구현
-- **Oracle Database**: 프로젝트 데이터 저장 및 관리
-
-### DevOps
-- **Netlify**: CI/CD 파이프라인 및 호스팅
-- **Git**: 버전 관리
+- **React**: 웹사이트의 주요 로직 구현.
+- **CSS**: 스타일링 및 레이아웃 관리.
+- **JavaScript**: 동적 기능 구현.
 
 ## 📂 디렉토리 구조
 
@@ -104,23 +95,72 @@ https://bjh-portfolio.netlify.app/
 ├── index.html // 메타 태그가 있는 파일
 └── README.md
 
-## 🔧 설치 및 실행
+---
+
+## 🖧 백엔드 설명
+
+- **Node.js(Express)**와 **MariaDB**를 사용하여 RESTful API 서버를 구현했습니다.
+- 주요 엔드포인트:
+  - `/aboutme` : 자기소개 데이터 반환
+  - `/award` : 수상 내역 반환
+  - `/educations` : 학력 정보 반환
+  - `/project` : 프로젝트 정보 반환
+  - `/skills` : 스킬 및 도구 정보 반환
+- 모든 엔드포인트는 JSON 형식으로 데이터를 제공합니다.
+
+## 🏃‍♂️ 로컬 개발 및 실행 방법
+
+### 1. 백엔드(Node.js)
 
 ```bash
-# 저장소 클론
-git clone https://github.com/ataraxia7899/Portfolio.git
-
-# 종속성 설치
+cd Back
 npm install
-
-# 개발 서버 실행
-npm run dev
-
-# 프로덕션 빌드
-npm run build
+node index.js
 ```
 
-<hr>
+- MariaDB가 로컬에서 실행 중이어야 하며, `Back/index.js`의 DB 접속 정보를 환경에 맞게 수정하세요.
+
+### 2. 프론트엔드(React)
+
+```bash
+npm install
+npm run dev
+```
+
+- 기본적으로 [Vite](https://vitejs.dev/) 개발 서버가 5173번 포트에서 실행됩니다.
+
+## 🗄️ DB 테이블 구조 예시
+
+```sql
+CREATE TABLE aboutme (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  description VARCHAR(255),
+  item_order INT
+);
+
+CREATE TABLE award (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  date DATE,
+  title VARCHAR(100),
+  degree_of_award VARCHAR(100),
+  host VARCHAR(100)
+);
+
+-- 기타 테이블도 유사하게 구성
+```
+
+## 🤝 기여 방법
+
+- 이슈 등록 및 PR(Pull Request) 환영합니다.
+- 코드 컨벤션 및 커밋 메시지 규칙을 지켜주세요.
+
+## 📜 라이선스 및 연락처
+
+- 본 프로젝트는 개인 포트폴리오 용도로 작성되었습니다.
+- 문의: ataraxia7899@gmail.com
+
+- Netlify 함수를 사용해 서버 없이 오라클 DB의 데이터를 불러오는 코드를 작성하다 포기하고 다시 작성하게 되어 이전 작성된 코드는 백업을 위해 tryOracleDB라는 이름으로 저장하였습니다.
+
+- master 브랜치에서 node.js와 mariaDB를 사용해 DB값을 불러와 데이터를 출력하는 코드로 작성하게되면서 24시간 호스팅이라는 장점을 버리긴 아까워 buildNetlify 브랜치를 만들어 해당 브랜치의 코드에서 JSON을 통해 고정텍스트값으로 지속적으로 호스팅하도록 세팅했습니다.
 
 사용한 아이콘 출처 : [Icons8](Icons8.com)
-
