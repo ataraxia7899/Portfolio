@@ -5,7 +5,7 @@ export default function Projects_Data() {
 		{
 			name: '졸업프로젝트',
 			date: '2023년 3월 23일',
-			skills: ['node.js', 'mysql', '앱인벤터'],
+			skills: ['Node.js', 'MySQL', '앱인벤터'],
 			explain: '다양한 점을 도전해 본 버스앱 개발',
 			detail_explain: `
 			처음으로 접한 프로젝트라 많은 도움이 필요했지만 팀원들과의 팀워크를 통해 열심히 개발하였으며, <br/>
@@ -19,7 +19,7 @@ export default function Projects_Data() {
 		{
 			name: '파이썬 팀프로젝트',
 			date: '2023년 6월 9일',
-			skills: ['python'],
+			skills: ['Python'],
 			explain: '1학년 전공과목에서 진행되었던 팀프로젝트',
 			detail_explain: `
 				팀원들이 한명은 내가 짠 코드의 오류를 수정하는 역할을 해주었고 <br/>
@@ -68,7 +68,7 @@ export default function Projects_Data() {
 		{
 			name: '디스코드라는 앱의 봇',
 			date: '2025년 1월 23일',
-			skills: ['python'],
+			skills: ['Python'],
 			explain:
 				'디스코드란 앱을 자주 사용하는데 만들어보고 싶어서 기능 하나씩 추가해보면서 만들어보았습니다.',
 			detail_explain: `
@@ -88,7 +88,7 @@ export default function Projects_Data() {
 		{
 			name: '포트폴리오 작성',
 			date: '2025년 2월 25일',
-			skills: ['React'],
+			skills: ['React', 'Node.js', 'Mariadb'],
 			explain:
 				'기존에 노션을 통해 작성한 포트폴리오를 React코드를 이용해 직접 웹페이지로 만들어본 프로젝트',
 			detail_explain: `
@@ -98,6 +98,10 @@ export default function Projects_Data() {
 			아직은 값이 그래도 그렇게 많지는 않아서 React를 통해 모든 것을 진행했는데<br/>
 			다음에 값이 더 많아지면 백엔드와 DB를 통해 값을 서버와 주고 받는 식으로도 도전해볼 예정입니다.<br/><br/>
 
+			현재는 브랜치를 분리해서 master 브랜치에서 node.js로 서버코드를 작성하고, mariadb를 이용해 데이터값을 가져와 react코드로 제작한 웹사이트가 정상동작하는 것을 확인했습니다.
+
+			<br />
+			<br />
 			<strong>현재 netlify를 통해 24시간 호스팅을 실행중</strong>
 			`,
 			url: 'https://github.com/ataraxia7899/Portfolio',
@@ -123,6 +127,19 @@ export default function Projects_Data() {
 				4. 사이트별 자동 배속 설정에 등록한 사이트의 활성화 / 비활성화 기능 <br/>
 			`,
 			url: 'https://github.com/ataraxia7899/Video-Speed-Up-Chrome-Extension',
+		},
+		{
+			name: '당근마켓 웹사이트 클론코딩',
+			date: '2025년 5월 16일',
+			skills: ['HTML&CSS', 'JavaScript'],
+			explain: '당근마켓의 웹사이트 중 하나를 클론코딩한 미니프로젝트',
+			detail_explain: `
+				현재 제작된 페이지는 당근마켓의 웹사이트 중 회사 소개탭으로
+				디자인들은 전체화면을 기준으로 px값으로 지정되었습니다.
+				버튼 활성화를 위해 버튼 클릭 이벤트들을 통해 이동되는 사이트들은
+				실제 당근마켓 페이지로 이동되도록 적용하였습니다.
+			`,
+			url: 'https://github.com/ataraxia7899/daangn_clone',
 		},
 	];
 	return <Project_Card Card_data={Card_data} />;
