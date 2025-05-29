@@ -28,6 +28,7 @@ https://bjh-portfolio.netlify.app/
 - 프로젝트 클릭 시 모달 팝업으로 상세 정보 표시
 - 다중 스킬 태그 시스템 구현
 - HTML 마크업을 지원하는 상세 설명 렌더링
+- 프로젝트 로딩시 FadeIn 애니메이션 효과 구현
 
 ### 3. 스킬 및 도구 섹션
 
@@ -61,15 +62,18 @@ https://bjh-portfolio.netlify.app/
 ## 🛠️ 기술 스택
 
 ### Frontend
+
 - **React**: 웹사이트의 UI 컴포넌트 구현
 - **CSS**: 반응형 디자인 및 스타일링
 - **JavaScript (ES6+)**: 동적 기능 구현
 
 ### Backend
+
 - **Node.js**: Netlify Functions를 통한 서버리스 백엔드 구현
 - **Oracle Database**: 프로젝트 데이터 저장 및 관리
 
 ### DevOps
+
 - **Netlify**: CI/CD 파이프라인 및 호스팅
 - **Git**: 버전 관리
 
@@ -126,4 +130,3 @@ npm run build
 <hr>
 
 사용한 아이콘 출처 : [Icons8](Icons8.com)
-
