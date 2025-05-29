@@ -1,13 +1,27 @@
 import '../App.css';
 import './Project.css';
+import ScrollCard from './ScrollCard/ScrollCard';
+import './ScrollCard/ScrollCard.css';
 import projects_png from '../assets/image/projects.png';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 
 export default function Projects() {
 	const [selectedProject, setSelectedProject] = useState(null);
 	const [projectsData, setProjectsData] = useState([]);
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState(null);
+
+	// 애니메이션 설정 추가
+	const animationConfig = useMemo(
+		() => ({
+			animationType: 'fadeUp',
+			animationDuration: 0.8,
+			ease: 'power1.out',
+			scrollStart: 'top bottom-=80px',
+			scrollEnd: 'bottom top+=80px',
+		}),
+		[]
+	);
 
 	// 데이터 가져오기 함수
 	const fetchProjectsData = async () => {
@@ -114,24 +128,33 @@ export default function Projects() {
 
 			<div>
 				{projectsData.map((item, index) => (
-					<div
+					<ScrollCard
 						key={item.id}
-						className="project-card"
-						onClick={() => handleClick(index)}
+						{...animationConfig}
+						delay={index * 0.08}
+						className="projects-card-wrapper"
 					>
-						<div className="project-name">{item.name}</div>
-						<div className="project-date">
-							{item.date && item.date !== 'undefined' ? item.date : '날짜 미정'}
+						<div
+							key={item.id}
+							className="project-card"
+							onClick={() => handleClick(index)}
+						>
+							<div className="project-name">{item.name}</div>
+							<div className="project-date">
+								{item.date && item.date !== 'undefined'
+									? item.date
+									: '날짜 미정'}
+							</div>
+							<div className="project-skills">
+								{parseSkills(item.skills).map((skill, skillIndex) => (
+									<span key={skillIndex} className="skill-tag">
+										{skill}
+									</span>
+								))}
+							</div>
+							<div className="project-explain">{item.explanation}</div>
 						</div>
-						<div className="project-skills">
-							{parseSkills(item.skills).map((skill, skillIndex) => (
-								<span key={skillIndex} className="skill-tag">
-									{skill}
-								</span>
-							))}
-						</div>
-						<div className="project-explain">{item.explanation}</div>
-					</div>
+					</ScrollCard>
 				))}
 			</div>
 

@@ -162,3 +162,28 @@
 	text-decoration: none;
 	color: white;
 }
+
+.projects-card-wrapper {
+	margin-bottom: 20px;
+}
+
+.projects-card-wrapper .project-card {
+	transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+	border-radius: 8px;
+}
+
+.projects-card-wrapper .project-card:hover {
+	transform: translateY(-3px);
+	box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* 반응형 조정 */
+@media (max-width: 768px) {
+	.projects-card-wrapper {
+		margin-bottom: 15px;
+	}
+
+	.projects-card-wrapper .project-card:hover {
+		transform: translateY(-1px);
+	}
+}
