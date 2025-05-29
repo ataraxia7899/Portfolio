@@ -136,25 +136,9 @@ npm run dev
 
 - 기본적으로 [Vite](https://vitejs.dev/) 개발 서버가 5173번 포트에서 실행됩니다.
 
-## 🗄️ DB 테이블 구조 예시
+## 🗄️ DB 테이블 구조
 
-```sql
-CREATE TABLE aboutme (
-  id INT PRIMARY KEY AUTO_INCREMENT,
-  description VARCHAR(255),
-  item_order INT
-);
-
-CREATE TABLE award (
-  id INT PRIMARY KEY AUTO_INCREMENT,
-  date DATE,
-  title VARCHAR(100),
-  degree_of_award VARCHAR(100),
-  host VARCHAR(100)
-);
-
--- 기타 테이블도 유사하게 구성
-```
+![Image](https://github.com/user-attachments/assets/67cc81cf-f3d4-4ad5-a571-fa79af12d37e)
 
 ## 🤝 기여 방법
 
