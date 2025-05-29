@@ -1,5 +1,7 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import './Projects_Data/Projects_Data';
+import ScrollCard from './ScrollCard/ScrollCard';
+import './ScrollCard/ScrollCard.css';
 
 export default function Project_Card(props) {
 	const [selectedProject, setSelectedProject] = useState(null);
@@ -59,91 +61,119 @@ export default function Project_Card(props) {
 		return { __html: htmlContent };
 	};
 
+	// 카드별 애니메이션 설정 - 더 자연스럽고 일반적인 패턴
+	const cardAnimationConfigs = useMemo(
+		() => [
+			{ type: 'fadeUp', delay: 0 },
+			{ type: 'fadeUp', delay: 0.1 },
+			{ type: 'fadeUp', delay: 0.2 },
+			{ type: 'fadeUp', delay: 0.3 },
+			{ type: 'fadeUp', delay: 0.4 },
+			{ type: 'fadeUp', delay: 0.5 },
+		],
+		[]
+	);
+
 	return (
 		<>
 			<div className="explanation_Card">
 				{props.Card_data.map((item, index) => (
-					<div
+					<ScrollCard
 						key={index}
-						className="explanation"
-						onClick={() => handleClick(index)}
+						animationType={
+							cardAnimationConfigs[index % cardAnimationConfigs.length].type
+						}
+						animationDuration={1.2}
+						ease="power2.out"
+						scrollStart="top bottom-=50px"
+						scrollEnd="bottom top+=50px"
+						delay={
+							cardAnimationConfigs[index % cardAnimationConfigs.length].delay
+						}
+						className="project-card-wrapper"
 					>
-						<text style={nameStyle}>{item.name || '-내용없음-'}</text>
-						<br />
-						<text style={dateStyle}>{item.date || '-내용없음-'}</text>
-						<br />
-						{/* ↓ 사용 스킬 하나씩 출력되도록 하는 로직 ↓ */}
-						{Array.isArray(item.skills) ? (
-							<div
+						<div
+							key={index}
+							className="explanation"
+							onClick={() => handleClick(index)}
+						>
+							<text style={nameStyle}>{item.name || '-내용없음-'}</text>
+							<br />
+							<text style={dateStyle}>{item.date || '-내용없음-'}</text>
+							<br />
+							{/* ↓ 사용 스킬 하나씩 출력되도록 하는 로직 ↓ */}
+							{Array.isArray(item.skills) ? (
+								<div
+									style={{
+										display: 'flex',
+										gap: '5px',
+										marginBottom: '5px',
+										overflow: 'hidden',
+									}}
+								>
+									{item.skills.map((skill, skillIndex) => (
+										<span
+											key={skillIndex}
+											style={{
+												...skillsStyle,
+												padding: '2px 5px',
+												borderRadius: '4px',
+												color: 'white',
+												whiteSpace: 'nowrap',
+												overflow: 'hidden',
+												textOverflow: 'ellipsis',
+											}}
+										>
+											{skill}
+										</span>
+									))}
+								</div>
+							) : (
+								item.skills && (
+									<>
+										<text
+											style={{
+												...skillsStyle,
+												overflow: 'hidden',
+												textOverflow: 'ellipsis',
+												whiteSpace: 'nowrap',
+											}}
+										>
+											{item.skills}
+										</text>
+										<br />
+									</>
+								)
+							)}
+							<text
 								style={{
-									display: 'flex',
-									gap: '5px',
-									marginBottom: '5px',
+									...explainStyle,
 									overflow: 'hidden',
+									textOverflow: 'ellipsis',
+									whiteSpace: 'nowrap',
+									display: 'block',
 								}}
 							>
-								{item.skills.map((skill, skillIndex) => (
-									<span
-										key={skillIndex}
-										style={{
-											...skillsStyle,
-											padding: '2px 5px',
-											borderRadius: '4px',
-											color: 'white',
-											whiteSpace: 'nowrap',
-											overflow: 'hidden',
-											textOverflow: 'ellipsis',
-										}}
-									>
-										{skill}
-									</span>
-								))}
-							</div>
-						) : (
-							item.skills && (
-								<>
-									<text
-										style={{
-											...skillsStyle,
-											overflow: 'hidden',
-											textOverflow: 'ellipsis',
-											whiteSpace: 'nowrap',
-										}}
-									>
-										{item.skills}
-									</text>
-									<br />
-								</>
-							)
-						)}
-						<text
-							style={{
-								...explainStyle,
-								overflow: 'hidden',
-								textOverflow: 'ellipsis',
-								whiteSpace: 'nowrap',
-								display: 'block',
-							}}
-						>
-							{item.explain || '-내용없음-'}
-						</text>
-						<br />
-						<a
-							href={item.url || ''}
-							target="_blank"
-							rel="noopener noreferrer"
-							style={{
-								fontSize: '11px',
-								overflow: 'hidden',
-								textOverflow: 'ellipsis',
-								whiteSpace: 'nowrap',
-								display: 'block',
-							}}
-							onClick={(e) => e.stopPropagation()}
-						>
-							{item.url || '-내용없음-'}
-						</a>
-					</div>
+								{item.explain || '-내용없음-'}
+							</text>
+							<br />
+							<a
+								href={item.url || ''}
+								target="_blank"
+								rel="noopener noreferrer"
+								style={{
+									fontSize: '11px',
+									overflow: 'hidden',
+									textOverflow: 'ellipsis',
+									whiteSpace: 'nowrap',
+									display: 'block',
+								}}
+								onClick={(e) => e.stopPropagation()}
+							>
+								{item.url || '-내용없음-'}
+							</a>
+						</div>
+					</ScrollCard>
 				))}
 			</div>
 
