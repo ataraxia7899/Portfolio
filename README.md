@@ -74,7 +74,7 @@ https://bjh-portfolio.netlify.app/
 - **Git**: 버전 관리
 
 ## 📂 디렉토리 구조
-
+```
 📦 프로젝트 루트<br>
 ├── public/
 │ └── preview.jpeg // 이미지 파일
@@ -106,7 +106,7 @@ https://bjh-portfolio.netlify.app/
 │ └── main.jsx<br>
 ├── index.html // 메타 태그가 있는 파일
 └── README.md
-
+```
 ## 🔧 설치 및 실행
 
 ```bash
