@@ -71,38 +71,71 @@ https://bjh-portfolio.netlify.app/
 ## 📂 디렉토리 구조
 
 ```
-📦 프로젝트 루트
-├── public/
-│ └── preview.jpeg // 이미지 파일
-├── src<br>
-│ ├── components<br>
-│ │ ├── AboutMe.jsx<br>
-│ │ ├── Awards.jsx<br>
-│ │ ├── Basic_explanation.jsx<br>
-│ │ ├── Cover.jsx<br>
-│ │ ├── Skills_And_Tools.jsx<br>
-│ │ ├── Title.jsx<br>
-│ │ ├── Projects.jsx<br>
-│ │ ├── Projects_Data<br>
-│ │ │ └── Projects_Data.jsx<br>
-│ │ ├── Project_Card.jsx<br>
-│ │ ├── ScrollIndicator.jsx<br>
-│ │ └── Educations.jsx<br>
-│ ├── assets<br>
-│ │ └── image<br>
-│ │ ├── cake.png<br>
-│ │ ├── email.png<br>
-│ │ ├── handup_human.png<br>
-│ │ ├── human.png<br>
-│ │ ├── pick.png<br>
-│ │ └── trophy.png<br>
-│ ├── App.jsx<br>
-│ ├── App.css<br>
-│ ├── index.css<br>
-│ └── main.jsx<br>
-├── index.html // 메타 태그가 있는 파일
-└── README.md
+📦 Portfolio
+├── 📂 public/                # 정적 파일 디렉토리
+│   ├── browser.png          # 파비콘 (16x16)
+│   ├── taskbar.png          # 윈도우 작업 표시줄용 아이콘 (32x32)
+│   ├── Desktop.png          # 데스크톱 바로가기용 아이콘 (96x96)
+│   ├── Apple.png           # iOS/Safari 홈스크린 아이콘 (180x180)
+│   └── preview.jpeg        # SNS 공유용 미리보기 이미지
+│
+├── 📂 src/                  # 소스 코드 디렉토리
+│   ├── 📂 components/       # 리액트 컴포넌트
+│   │   ├── 📂 ScrollCard/   # 스크롤 애니메이션 컴포넌트
+│   │   │   ├── ScrollCard.jsx
+│   │   │   └── ScrollCard.css
+│   │   ├── AboutMe.jsx     # 자기소개 섹션
+│   │   ├── Awards.jsx      # 수상 이력 섹션
+│   │   ├── Cover.jsx       # 상단 커버 이미지
+│   │   ├── Educations.jsx  # 학력 정보 섹션
+│   │   ├── Projects.jsx    # 프로젝트 목록 섹션
+│   │   ├── Skills_And_Tools.jsx  # 기술 스택 섹션
+│   │   └── Title.jsx       # 페이지 타이틀 섹션
+│   │
+│   ├── 📂 assets/          # 이미지 등 리소스 파일
+│   │   └── 📂 image/
+│   │       ├── cake.png    # 생일 아이콘
+│   │       ├── email.png   # 이메일 아이콘
+│   │       └── ...
+│   │
+│   ├── App.jsx             # 메인 애플리케이션 컴포넌트
+│   ├── App.css             # 전역 스타일
+│   ├── index.css           # 기본 스타일
+│   └── main.jsx            # 진입점
+│
+├── 📂 Back/                 # 백엔드 서버
+│   ├── index.js            # Express 서버 & DB 연동
+│   └── package.json        # 백엔드 의존성
+│
+├── index.html              # 메인 HTML
+├── vite.config.js          # Vite 설정
+├── eslint.config.js        # ESLint 설정
+├── package.json            # 프론트엔드 의존성
+└── README.md              # 프로젝트 문서
 ```
+
+### 📁 주요 디렉토리 및 파일 설명
+
+#### 프론트엔드
+
+- `src/components/`: 각 섹션별 React 컴포넌트
+  - `ScrollCard/`: 스크롤 애니메이션 효과를 위한 공통 컴포넌트
+  - 각 컴포넌트는 독립적인 섹션을 담당 (AboutMe, Awards 등)
+- `src/assets/`: 이미지 등 정적 리소스 파일
+- `App.jsx`: 전체 레이아웃 구성 및 컴포넌트 통합
+- `index.html`: 메타 태그 및 파비콘 설정
+
+#### 백엔드
+
+- `Back/index.js`: Express 서버 및 MariaDB 연동 로직
+  - REST API 엔드포인트 구현
+  - DB 쿼리 및 데이터 처리
+
+#### 설정 파일
+
+- `vite.config.js`: Vite 빌드 도구 설정
+- `eslint.config.js`: 코드 품질 관리를 위한 ESLint 규칙
+- `package.json`: 프로젝트 의존성 관리
 
 ---
 
