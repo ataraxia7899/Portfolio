@@ -70,7 +70,8 @@ https://bjh-portfolio.netlify.app/
 
 ## 📂 디렉토리 구조
 
-📦 프로젝트 루트<br>
+```
+📦 프로젝트 루트
 ├── public/
 │ └── preview.jpeg // 이미지 파일
 ├── src<br>
@@ -101,6 +102,7 @@ https://bjh-portfolio.netlify.app/
 │ └── main.jsx<br>
 ├── index.html // 메타 태그가 있는 파일
 └── README.md
+```
 
 ---
 
@@ -143,7 +145,6 @@ npm run dev
 ## 🤝 기여 방법
 
 - 이슈 등록 및 PR(Pull Request) 환영합니다.
-- 코드 컨벤션 및 커밋 메시지 규칙을 지켜주세요.
 
 ## 📜 라이선스 및 연락처
 
