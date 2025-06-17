@@ -8,6 +8,7 @@ import Awards from './components/Awards';
 import Projects from './components/Projects';
 import Educations from './components/Educations';
 import ScrollIndicator from './components/ScrollIndicator';
+import Footer from './components/Footer';
 
 export default function App() {
 	// const [openList, setOpenList] = useState(false);
@@ -61,6 +62,7 @@ export default function App() {
 					<Awards />
 					<Projects />
 					<AboutMe />
+					<Footer />
 				</div>
 			</div>
 		</>
