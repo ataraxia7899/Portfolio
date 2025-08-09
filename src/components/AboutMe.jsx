@@ -7,17 +7,6 @@ export default function AboutMe() {
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState(null);
 
-	const AboutMeStyle = {
-		marginTop: '35px',
-	};
-
-	const UIStyle = {
-		fontSize: '0.8rem',
-		display: 'flex',
-		flexDirection: 'column' /* 세로 정렬 */,
-		gap: '5px' /* 리스트 항목 사이의 간격 */,
-	};
-
 	// 데이터 가져오기 함수
 	const fetchAboutMeData = async () => {
 		try {
@@ -46,7 +35,7 @@ export default function AboutMe() {
 	// 로딩 상태 처리
 	if (loading) {
 		return (
-			<div style={AboutMeStyle}>
+			<div className="about-me">
 				<p>로딩 중...</p>
 			</div>
 		);
@@ -55,22 +44,22 @@ export default function AboutMe() {
 	// 에러 상태 처리
 	if (error) {
 		return (
-			<div style={AboutMeStyle}>
+			<div className="about-me">
 				<p>데이터를 불러오는데 실패했습니다: {error}</p>
 			</div>
 		);
 	}
 
 	return (
-		<div style={AboutMeStyle}>
+		<div className="about-me">
 			<img
 				src={handup_human_png}
 				alt="handup_human"
-				style={{ width: '20px', height: '20px' }}
-			/>{' '}
-			<b style={{ fontSize: '1.1rem' }}>About me</b>
-			<hr style={{ width: '100%', margin: '10px 0' }} />
-			<ul style={UIStyle}>
+				className="about-me-icon"
+			/>
+			<b className="about-me-title">About me</b>
+			<hr className="about-me-hr" />
+			<ul className="about-me-list">
 				{aboutMeData
 					.sort((a, b) => a.item_order - b.item_order)
 					.map((item) => (

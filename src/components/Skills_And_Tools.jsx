@@ -7,11 +7,6 @@ export default function Skills_and_Tool() {
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState(null);
 
-	const ChartStyle = {
-		marginTop: '35px',
-		// alignItems: 'center',
-	};
-
 	// 데이터 가져오기 함수
 	const fetchSkillsData = async () => {
 		try {
@@ -43,7 +38,7 @@ export default function Skills_and_Tool() {
 	// 로딩 상태 처리
 	if (loading) {
 		return (
-			<div style={ChartStyle}>
+			<div className="skills-section">
 				<p>Skills 데이터 로딩 중...</p>
 			</div>
 		);
@@ -52,7 +47,7 @@ export default function Skills_and_Tool() {
 	// 에러 상태 처리
 	if (error) {
 		return (
-			<div style={ChartStyle}>
+			<div className="skills-section">
 				<p>Skills 데이터를 불러오는데 실패했습니다: {error}</p>
 				<button onClick={fetchSkillsData}>다시 시도</button>
 			</div>
@@ -60,20 +55,18 @@ export default function Skills_and_Tool() {
 	}
 
 	return (
-		<div style={ChartStyle}>
-			<p style={{ fontSize: '1.1rem' }}>
+		<div className="skills-section">
+			<p className="skills-title-container">
 				<img
 					src={pick_png}
 					alt="handup_human"
-					style={{ width: '20px', height: '20px' }}
+					className="skills-icon"
 				/>{' '}
 				<b>Skills and Tools</b>
-				<hr style={{ width: '100%', margin: '10px 0' }} />
+				<hr className="skills-hr" />
 			</p>
 			<table
-				className="table"
-				border="1"
-				style={{ width: '100%', textAlign: 'center', tableLayout: 'fixed' }}
+				className="skills-table"
 			>
 				<thead>
 					<tr>
@@ -90,7 +83,7 @@ export default function Skills_and_Tool() {
 							<td>{field}</td>
 
 							{/* 많이 해봤어요 열 */}
-							<td style={{ maxHeight: '50px', overflowY: 'auto' }}>
+							<td className="skills-table-cell">
 								{skillsData
 									.filter((item) => item.field === field && item.often === 1)
 									.map((item, index) => (
@@ -102,7 +95,7 @@ export default function Skills_and_Tool() {
 							</td>
 
 							{/* 해본 적 있어요 열 */}
-							<td style={{ maxHeight: '50px', overflowY: 'auto' }}>
+							<td className="skills-table-cell">
 								{skillsData
 									.filter((item) => item.field === field && item.often === 2)
 									.map((item, index) => (

@@ -6,14 +6,6 @@ export default function Educations() {
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState(null);
 
-	const UIStyle = {
-		fontSize: '0.8rem',
-		display: 'flex',
-		flexDirection: 'column' /* 세로 정렬 */,
-		gap: '5px' /* 리스트 항목 사이의 간격 */,
-		marginTop: '5px',
-	};
-
 	// 데이터 가져오기 함수
 	const fetchEducationsData = async () => {
 		try {
@@ -42,7 +34,7 @@ export default function Educations() {
 	// 로딩 상태 처리
 	if (loading) {
 		return (
-			<div style={{ marginTop: '35px' }}>
+			<div className="educations-section">
 				<p>Educations 데이터 로딩 중...</p>
 			</div>
 		);
@@ -51,7 +43,7 @@ export default function Educations() {
 	// 에러 상태 처리
 	if (error) {
 		return (
-			<div style={{ marginTop: '35px' }}>
+			<div className="educations-section">
 				<p>Educations 데이터를 불러오는데 실패했습니다: {error}</p>
 				<button onClick={fetchEducationsData}>다시 시도</button>
 			</div>
@@ -61,17 +53,17 @@ export default function Educations() {
 	// 데이터가 없는 경우 처리
 	if (educationsData.length === 0) {
 		return (
-			<div style={{ marginTop: '35px' }}>
-				<p style={{ fontSize: '1.1rem' }}>
+			<div className="educations-section">
+				<p className="educations-title-container">
 					<img
 						src={books_png}
 						alt="books_icon"
-						style={{ width: '20px', height: '20px' }}
+						className="educations-icon"
 					/>{' '}
 					<b>Educations</b>
-					<hr style={{ width: '100%', margin: '10px 0' }} />
+					<hr className="educations-hr" />
 				</p>
-				<p style={{ textAlign: 'center', color: '#666' }}>
+				<p className="no-educations-message">
 					등록된 학력 정보가 없습니다.
 				</p>
 			</div>
@@ -79,23 +71,23 @@ export default function Educations() {
 	}
 
 	return (
-		<div style={{ marginTop: '35px' }}>
-			<p style={{ fontSize: '1.1rem' }}>
+		<div className="educations-section">
+			<p className="educations-title-container">
 				<img
 					src={books_png}
 					alt="handup_human"
-					style={{ width: '20px', height: '20px' }}
+					className="educations-icon"
 				/>{' '}
 				<b>Educations</b>
-				<hr style={{ width: '100%', margin: '10px 0' }} />
+				<hr className="educations-hr" />
 			</p>
-			<ul style={UIStyle}>
+			<ul className="educations-list">
 				{educationsData
 					.sort((a, b) => new Date(a.start_date) - new Date(b.start_date))
 					.map((education) => (
 						<li key={education.id}>
 							{education.school} / {education.division}
-							<ul style={UIStyle}>
+							<ul className="educations-list">
 								<li>{education.date}</li>
 								<li>
 									학점 : <b>{education.credit} / 4.5</b>

@@ -7,11 +7,6 @@ export default function Awards() {
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState(null);
 
-	const AwardStyle = {
-		marginTop: '35px',
-		// alignItems: 'center',
-	};
-
 	// 데이터 가져오기 함수
 	const fetchAwardsData = async () => {
 		try {
@@ -40,7 +35,7 @@ export default function Awards() {
 	// 로딩 상태 처리
 	if (loading) {
 		return (
-			<div style={AwardStyle}>
+			<div className="awards-section">
 				<p>Awards 데이터 로딩 중...</p>
 			</div>
 		);
@@ -49,7 +44,7 @@ export default function Awards() {
 	// 에러 상태 처리
 	if (error) {
 		return (
-			<div style={AwardStyle}>
+			<div className="awards-section">
 				<p>Awards 데이터를 불러오는데 실패했습니다: {error}</p>
 				<button onClick={fetchAwardsData}>다시 시도</button>
 			</div>
@@ -59,17 +54,17 @@ export default function Awards() {
 	// 데이터가 없는 경우 처리
 	if (awardsData.length === 0) {
 		return (
-			<div style={AwardStyle}>
-				<p style={{ fontSize: '1.1rem' }}>
+			<div className="awards-section">
+				<p className="awards-title-container">
 					<img
 						src={trophy_png}
 						alt="trophy_icon"
-						style={{ width: '20px', height: '20px' }}
+						className="awards-icon"
 					/>{' '}
 					<b>Awards</b>
-					<hr style={{ width: '100%', margin: '10px 0' }} />
+					<hr className="awards-hr" />
 				</p>
-				<p style={{ textAlign: 'center', color: '#666' }}>
+				<p className="no-awards-message">
 					등록된 수상 내역이 없습니다.
 				</p>
 			</div>
@@ -77,20 +72,18 @@ export default function Awards() {
 	}
 
 	return (
-		<div style={AwardStyle}>
-			<p style={{ fontSize: '1.1rem' }}>
+		<div className="awards-section">
+			<p className="awards-title-container">
 				<img
 					src={trophy_png}
 					alt="handup_human"
-					style={{ width: '20px', height: '20px' }}
+					className="awards-icon"
 				/>{' '}
 				<b>Awards</b>
-				<hr style={{ width: '100%', margin: '10px 0' }} />
+				<hr className="awards-hr" />
 			</p>
 			<table
-				className="table"
-				border="1"
-				style={{ width: '100%', textAlign: 'center', tableLayout: 'fixed' }}
+				className="awards-table"
 			>
 				<thead>
 					<tr>
@@ -105,16 +98,16 @@ export default function Awards() {
 						.sort((a, b) => new Date(b.date) - new Date(a.date))
 						.map((item, index) => (
 							<tr key={index}>
-								<td style={{ maxHeight: '50px', overflowY: 'auto' }}>
+								<td className="awards-table-cell">
 									{item.date}
 								</td>
-								<td style={{ maxHeight: '50px', overflowY: 'auto' }}>
+								<td className="awards-table-cell">
 									{item.title}
 								</td>
-								<td style={{ maxHeight: '50px', overflowY: 'auto' }}>
+								<td className="awards-table-cell">
 									{item.degree_of_award}
 								</td>
-								<td style={{ maxHeight: '50px', overflowY: 'auto' }}>
+								<td className="awards-table-cell">
 									{item.host}
 								</td>
 							</tr>

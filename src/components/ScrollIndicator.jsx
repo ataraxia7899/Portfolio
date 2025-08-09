@@ -43,7 +43,7 @@ export default function ScrollIndicator() {
 	return (
 		<div className="scroll_bar">
 			<div
-				style={{ width: `${scroll}%`, transition: 'width 0.1s ease-out' }}
+				style={{ width: `${scroll}%` }}
 				className="scroll_indicator"
 			/>
 			{/* `${scroll}%`는 템플릿 리터럴을 사용하여 스크롤 진행률을 동적으로 너비에 적용하는 코드 */}
