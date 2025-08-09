@@ -362,3 +362,270 @@ ul li::marker {
     overflow-y: auto;
     word-wrap: break-word;
 }
+
+/* === Project Component Styles === */
+
+.projects-container {
+	margin-top: 35px;
+}
+
+.projects-header {
+	font-size: 1.1rem;
+}
+
+.projects-icon {
+	width: 20px;
+	height: 20px;
+    vertical-align: middle;
+}
+
+.projects-divider {
+	width: 100%;
+	margin: 10px 0;
+    border: 0;
+    border-top: 1px solid #ccc;
+}
+
+/* --- Project Card --- */
+.project-card {
+    background-color: #3a3a3a;
+    border: 1px solid #555;
+    border-radius: 12px;
+    padding: 24px;
+    margin: 10px 0;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.project-name {
+	font-size: 22px;
+	font-weight: bold;
+    color: #ffffff;
+}
+
+.project-date {
+	font-size: 12px;
+	font-weight: bold;
+	color: #989898;
+}
+
+.project-skills {
+	margin: 8px 0;
+}
+
+.project-explain {
+	font-size: 13px;
+    margin-top: 12px;
+}
+
+/* --- Skill Tags --- */
+.skill-tag, .modal-skill-tag {
+    font-size: 12px;
+    background-color: #007bff;
+    color: white;
+    padding: 5px 10px;
+    margin: 4px;
+    border-radius: 15px;
+    display: inline-block;
+}
+
+/* --- Modal --- */
+.modal-overlay {
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.8);
+	justify-content: center;
+	align-items: center;
+	z-index: 1000;
+	backdrop-filter: blur(5px);
+}
+
+.modal-overlay.modal-active {
+	display: flex;
+}
+
+.modal-content {
+	background-color: #333;
+	padding: 40px;
+	border-radius: 15px;
+	width: 90%;
+	max-width: 800px;
+	max-height: 90vh;
+	overflow-y: auto;
+	box-shadow: 0 5px 25px rgba(0, 0, 0, 0.4);
+	border: 1px solid #555;
+	color: #fff;
+    transform: scale(0.95);
+    transition: transform 0.3s ease-out;
+    position: relative; /* For absolute positioning of close button */
+}
+
+.modal-overlay.modal-active .modal-content {
+    transform: scale(1);
+}
+
+.modal-close-button {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+	background-color: rgba(255, 255, 255, 0.1);
+	border: none;
+	color: #fff;
+	font-size: 20px;
+    font-weight: bold;
+	cursor: pointer;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    transition: background-color 0.2s ease;
+}
+
+.modal-close-button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.modal-title {
+	color: #fff;
+	margin-top: 0;
+    margin-bottom: 8px;
+}
+
+.modal-date {
+	color: #ccc;
+	font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.modal-section {
+	margin-bottom: 20px;
+}
+
+.modal-section strong {
+    display: block;
+    margin-bottom: 8px;
+    color: #00aaff;
+}
+
+.modal-skills {
+	margin-top: 8px;
+}
+
+.modal-description {
+	margin-top: 8px;
+	line-height: 1.6;
+}
+
+.modal-detail {
+	margin-top: 8px;
+	line-height: 1.6;
+	white-space: pre-line;
+    background-color: rgba(0,0,0,0.2);
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.modal-link-section {
+	margin-top: 20px;
+    text-align: right;
+}
+
+.github-link {
+	background-color: #222;
+    border: 1px solid #555;
+	color: white;
+	padding: 10px 20px;
+	text-decoration: none;
+	border-radius: 8px;
+	display: inline-block;
+    transition: background-color 0.2s ease;
+}
+
+.github-link:hover {
+	background-color: #111;
+	text-decoration: none;
+	color: white;
+}
+
+/* --- Scroll Animation Card --- */
+.scroll-card {
+	transform-style: preserve-3d;
+	backface-visibility: hidden;
+	will-change: transform, opacity;
+}
+
+/* No hover effect here, it's on the .project-card now */
+
+@media (max-width: 768px) {
+	.scroll-card {
+		transform: none;
+	}
+}
+
+/* --- Project Cards Grid Layout --- */
+.project-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px; /* 카드 사이의 간격 */
+}
+
+/* 화면이 1024px보다 작아지면 1열로 변경 */
+@media (max-width: 1024px) {
+  .project-cards-grid {
+    grid-template-columns: 1fr;
+  }
+}
+/* === General Typography & Spacing Improvements === */
+
+/* --- Project Card Spacing --- */
+.project-name {
+    margin-bottom: 4px; /* 제목과 날짜 사이 간격 */
+}
+.project-date {
+    margin-bottom: 12px; /* 날짜와 스킬 태그 사이 간격 */
+}
+.project-explain {
+	font-size: 14px; /* 설명 폰트 크기 살짝 키움 */
+    line-height: 1.6; /* 설명 줄 간격 개선 */
+    margin-top: auto; /* Push description to the bottom */
+}
+
+/* --- Modal Spacing --- */
+.modal-title {
+    margin-bottom: 4px;
+}
+.modal-date {
+    margin-bottom: 24px; /* 날짜와 본문 내용 사이 간격 */
+}
+.modal-section {
+	margin-bottom: 24px; /* 각 섹션 사이 간격 */
+}
+.modal-section strong {
+    margin-bottom: 12px; /* 섹션 제목과 내용 사이 간격 */
+}
+.modal-description, .modal-detail {
+	line-height: 1.7; /* 긴 글 줄 간격 개선 */
+    font-size: 15px;
+}
+
+/* --- List Spacing (AboutMe, Educations) --- */
+.about-me-list li, .educations-list li {
+    margin-bottom: 8px; /* 목록 아이템 사이 간격 */
+    line-height: 1.6;
+}
+
+/* --- Table Spacing (Awards, Skills) --- */
+.awards-table th, .awards-table td,
+.skills-table th, .skills-table td {
+    padding: 12px; /* 테이블 셀 내부 여백 추가 */
+}

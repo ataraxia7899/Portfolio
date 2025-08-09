@@ -1,7 +1,5 @@
 import '../App.css';
-import './Project.css';
 import ScrollCard from './ScrollCard/ScrollCard';
-import './ScrollCard/ScrollCard.css';
 import projects_png from '../assets/image/projects.png';
 import { useState, useEffect, useMemo } from 'react';
 
@@ -126,7 +124,7 @@ export default function Projects() {
 				<hr className="projects-divider" />
 			</p>
 
-			<div>
+			<div className="project-cards-grid">
 				{projectsData.map((item, index) => (
 					<ScrollCard
 						key={item.id}
