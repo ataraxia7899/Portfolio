@@ -1,0 +1,466 @@
+/* ========================================
+   스크롤 애니메이션 스타일
+   ======================================== */
+
+/* 스크롤 시 페이드인 애니메이션 기본 상태 */
+.scroll-animate {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* 애니메이션 활성화 상태 */
+.scroll-animate.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 타임라인 아이템 스크롤 애니메이션 */
+.timeline-item.scroll-animate {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.timeline-item.scroll-animate.animate-in {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+@media (min-width: 769px) {
+  .timeline-item:nth-child(even).scroll-animate {
+    transform: translateX(30px);
+  }
+  
+  .timeline-item:nth-child(even).scroll-animate.animate-in {
+    transform: translateX(0);
+  }
+}
+
+/* ========================================
+   Skills 섹션 스타일
+   ======================================== */
+
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 28px;
+}
+
+.skill-category {
+  flex: 0 1 calc(33.333% - 20px);
+  min-width: 300px;
+  max-width: 400px;
+  background: var(--surface);
+  border: 1px solid var(--surface-border);
+  border-radius: var(--border-radius-lg);
+  padding: 28px;
+  transition: all var(--transition-normal);
+}
+
+/* 5개 블럭을 3+2 형태로 배치하기 위한 미디어쿼리 */
+@media (min-width: 1024px) {
+  .skill-category {
+    flex: 0 1 calc(33.333% - 20px);
+  }
+}
+
+.skill-category:hover {
+  border-color: var(--primary);
+  box-shadow: var(--shadow-md);
+}
+
+.skill-category-title {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.skill-category-icon {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--primary-glow);
+  border-radius: var(--border-radius-sm);
+  color: var(--primary);
+}
+
+.skill-category-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.skill-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.skill-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.skill-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.skill-name {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.skill-level {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.skill-bar {
+  width: 100%;
+  height: 8px;
+  background: var(--background-alt);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.skill-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  border-radius: 4px;
+  transition: width 1s ease;
+}
+
+/* About 섹션 스타일 */
+/* ========================================
+   About 섹션 스타일
+   ======================================== */
+
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .about-content {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+.about-text h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 16px;
+}
+
+.about-text p {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin-bottom: 24px;
+}
+
+.about-info {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.about-info-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  background: var(--surface);
+  border: 1px solid var(--surface-border);
+  border-radius: var(--border-radius);
+  transition: all var(--transition-fast);
+}
+
+.about-info-item:hover {
+  border-color: var(--primary);
+}
+
+.about-info-icon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--primary-glow);
+  border-radius: var(--border-radius-sm);
+  color: var(--primary);
+}
+
+.about-info-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.about-info-content span {
+  display: block;
+}
+
+.about-info-label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-bottom: 2px;
+}
+
+.about-info-value {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+/* Experience 섹션 스타일 */
+/* ========================================
+   Experience 섹션 스타일
+   ======================================== */
+
+.experience-timeline {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.experience-timeline::before {
+  content: '';
+  position: absolute;
+  left: 24px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--surface-border);
+}
+
+@media (min-width: 769px) {
+  .experience-timeline::before {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+.timeline-item {
+  position: relative;
+  padding-left: 60px;
+  padding-bottom: 40px;
+}
+
+.timeline-item:last-child {
+  padding-bottom: 0;
+}
+
+@media (min-width: 769px) {
+  .timeline-item {
+    width: 50%;
+    padding-left: 0;
+    padding-right: 40px;
+  }
+  
+  .timeline-item:nth-child(even) {
+    margin-left: 50%;
+    padding-left: 40px;
+    padding-right: 0;
+  }
+}
+
+.timeline-dot {
+  position: absolute;
+  left: 16px;
+  top: 8px;
+  width: 18px;
+  height: 18px;
+  background: var(--primary);
+  border: 3px solid var(--background);
+  border-radius: 50%;
+  z-index: 1;
+}
+
+@media (min-width: 769px) {
+  .timeline-dot {
+    left: auto;
+    right: -9px;
+  }
+  
+  .timeline-item:nth-child(even) .timeline-dot {
+    right: auto;
+    left: -9px;
+  }
+}
+
+.timeline-content {
+  background: var(--surface);
+  border: 1px solid var(--surface-border);
+  border-radius: var(--border-radius);
+  padding: 12px 24px 16px 24px;
+  transition: all var(--transition-normal);
+}
+
+.timeline-content:hover {
+  border-color: var(--primary);
+  box-shadow: var(--shadow-md);
+}
+
+.timeline-type {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  border-radius: 20px;
+  margin-bottom: 12px;
+  line-height: 1;
+}
+
+.timeline-type.work {
+  background: var(--primary-glow);
+  color: var(--primary);
+}
+
+.timeline-type.education {
+  background: rgba(6, 182, 212, 0.15);
+  color: var(--accent);
+}
+
+.timeline-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.timeline-org {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+}
+
+.timeline-period {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+
+.timeline-description {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-bottom: 12px;
+}
+
+.timeline-details {
+  list-style: none;
+  padding: 0;
+}
+
+.timeline-details li {
+  position: relative;
+  padding-left: 16px;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.timeline-details li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--primary);
+}
+
+/* Contact 섹션 스타일 */
+/* ========================================
+   Contact 섹션 스타일
+   ======================================== */
+
+.contact {
+  background: var(--background-alt);
+}
+
+.contact-content {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.contact-description {
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+  margin-bottom: 40px;
+}
+
+.contact-links {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.contact-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 28px;
+  font-size: 1rem;
+  font-weight: 500;
+  background: var(--surface);
+  border: 1px solid var(--surface-border);
+  border-radius: var(--border-radius);
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: all var(--transition-normal);
+}
+
+.contact-link:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.contact-link svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Footer 스타일 */
+/* ========================================
+   Footer 스타일
+   ======================================== */
+
+.footer {
+  padding: 24px 0;
+  text-align: center;
+  border-top: 1px solid var(--surface-border);
+}
+
+.footer-text {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+.footer-text a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.footer-text a:hover {
+  text-decoration: underline;
+}
