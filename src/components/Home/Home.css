@@ -229,5 +229,17 @@
   
   .scroll-indicator {
     bottom: 24px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    transform: none;
+    width: fit-content;
+  }
+}
+
+/* 화면 높이가 작을 때 scroll-indicator 숨김 */
+@media (max-height: 800px) {
+  .scroll-indicator {
+    display: none;
   }
 }
