@@ -145,6 +145,7 @@
   margin-bottom: 10px;
   display: -webkit-box;
   -webkit-line-clamp: 1;
+  line-clamp: 1;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
@@ -155,6 +156,7 @@
   margin-bottom: 18px;
   display: -webkit-box;
   -webkit-line-clamp: 2;
+  line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
   min-height: 2.8em;
@@ -371,8 +373,8 @@
 }
 
 .modal-section-title {
-  font-size: 1.1rem;
-  font-weight: 600;
+  font-size: 1.5rem;
+  font-weight: 700;
   color: var(--text-primary);
   margin-bottom: 14px;
   display: flex;
@@ -417,23 +419,28 @@
 
 /* 모달 이미지 갤러리 */
 .modal-gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
   margin-top: 12px;
 }
 
 .modal-gallery-item {
+  /* aspect-ratio: 16 / 10; 제거 - 컨텐츠에 맞게 늘어나도록 */
+  background: transparent;
+}
+
+.modal-gallery-img-container {
   aspect-ratio: 16 / 10;
   border-radius: var(--border-radius-sm);
   overflow: hidden;
   background: var(--background-alt);
 }
 
-.modal-gallery-item img {
+.modal-gallery-img-container img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 /* 모달 링크 버튼 */
@@ -477,9 +484,44 @@
   background: var(--primary-hover);
 }
 
+.modal-link-video {
+  color: var(--text-primary);
+  background: var(--surface-hover);
+  border: 1px solid var(--surface-border);
+}
+
+.modal-link-video:hover {
+  border-color: #ff0000;
+  color: #ff0000;
+}
+
 .modal-link svg {
   width: 18px;
   height: 18px;
+}
+
+.modal-gallery-caption {
+  margin-bottom: 12px;
+  font-size: 1.1rem;
+  color: var(--text-primary);
+  text-align: left;
+  position: relative;
+  padding-left: 16px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+}
+
+.modal-gallery-caption::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  background: var(--primary);
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 /* 반응형 */

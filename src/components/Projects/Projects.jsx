@@ -295,11 +295,19 @@ function ProjectModal({ project, isOpen, onClose }) {
               <div className="modal-section">
                 <h3 className="modal-section-title">스크린샷</h3>
                 <div className="modal-gallery">
-                  {project.details.images.map((img, index) => (
-                    <div key={index} className="modal-gallery-item">
-                      <img src={img} alt={`${project.title} 스크린샷 ${index + 1}`} loading="lazy" />
-                    </div>
-                  ))}
+                  {project.details.images.map((img, index) => {
+                    // 객체 형태 또는 문자열 형태 모두 지원
+                    const imgSrc = typeof img === 'string' ? img : img.src;
+                    const imgCaption = typeof img === 'object' ? img.caption : null;
+                    return (
+                      <div key={index} className="modal-gallery-item">
+                        {imgCaption && <p className="modal-gallery-caption">{imgCaption}</p>}
+                        <div className="modal-gallery-img-container">
+                          <img src={imgSrc} alt={`${project.title} 스크린샷 ${index + 1}`} loading="lazy" />
+                        </div>
+                      </div>
+                    );
+                  })}
                 </div>
               </div>
             )}
@@ -330,6 +338,19 @@ function ProjectModal({ project, isOpen, onClose }) {
                     <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3" />
                   </svg>
                   Live Demo
+                </a>
+              )}
+              {project.VideoURL && (
+                <a 
+                  href={project.VideoURL} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="modal-link modal-link-video"
+                >
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                  </svg>
+                  시연영상
                 </a>
               )}
             </div>

@@ -3,9 +3,11 @@
 ![React](https://img.shields.io/badge/React-19.1-61DAFB?style=flat-square&logo=react)
 ![Vite](https://img.shields.io/badge/Vite-7.3-646CFF?style=flat-square&logo=vite)
 ![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-F7DF1E?style=flat-square&logo=javascript)
-![Netlify](https://img.shields.io/badge/Netlify-Ready-00C7B7?style=flat-square&logo=netlify)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/7fc41998-e1ab-4582-9e2e-64bde533d4e6/deploy-status)](https://app.netlify.com/projects/ataraxiaportfolio/deploys)
 
 개발자 변진환의 포트폴리오 웹사이트입니다.
+
+🔗 **호스팅 URL**: [https://ataraxiaportfolio.netlify.app](https://ataraxiaportfolio.netlify.app)
 
 ## ✨ 주요 기능
 
