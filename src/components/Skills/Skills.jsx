@@ -1,10 +1,10 @@
-import { useEffect, useRef } from 'react';
-import { portfolioData } from '../../data/portfolio-data';
+import { useEffect, useRef, useMemo } from 'react';
+import { portfolioData } from '../../data';
 import './Skills.css';
 
 // Skills 섹션 컴포넌트
-// 카테고리별 기술 스택을 태그 그리드로 표시합니다.
-export function Skills() {
+// 카테고리별 기술 스택을 태그 그리드로 표시
+export default function Skills() {
   const { skills } = portfolioData;
   const sectionRef = useRef(null);
 
@@ -33,19 +33,8 @@ export function Skills() {
     return () => observer.disconnect();
   }, []);
 
-  const categories = [
-    { 
-      key: 'languages', 
-      title: 'Languages', 
-      data: skills.languages,
-      icon: (
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-          <polyline points="16 18 22 12 16 6" />
-          <polyline points="8 6 2 12 8 18" />
-        </svg>
-      ),
-      color: '#f59e0b'
-    },
+  // useMemo로 메모이제이션하여 불필요한 재생성 방지
+  const categories = useMemo(() => [
     { 
       key: 'frontend', 
       title: 'Frontend', 
@@ -74,6 +63,18 @@ export function Skills() {
       color: '#10b981'
     },
     { 
+      key: 'languages', 
+      title: '개발 언어', 
+      data: skills.languages,
+      icon: (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <polyline points="16 18 22 12 16 6" />
+          <polyline points="8 6 2 12 8 18" />
+        </svg>
+      ),
+      color: '#f59e0b'
+    },
+    { 
       key: 'database', 
       title: 'Database', 
       data: skills.database,
@@ -87,9 +88,21 @@ export function Skills() {
       color: '#6366f1'
     },
     { 
-      key: 'tools', 
-      title: 'Tools', 
-      data: skills.tools,
+      key: 'devops', 
+      title: 'DevOps', 
+      data: skills.devops,
+      icon: (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <circle cx="12" cy="12" r="3" />
+          <path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z" />
+        </svg>
+      ),
+      color: '#8b5cf6'
+    },
+    { 
+      key: 'others', 
+      title: '기타', 
+      data: skills.others,
       icon: (
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
           <path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z" />
@@ -97,7 +110,7 @@ export function Skills() {
       ),
       color: '#ec4899'
     }
-  ];
+  ], [skills]);
 
   return (
     <section id="skills" className="section" ref={sectionRef}>
@@ -115,11 +128,11 @@ export function Skills() {
                 <h3 className="skill-category-title">{category.title}</h3>
               </div>
               <div className="skill-tags">
-                {category.data.map((skill) => (
+                {category.data?.map((skill) => (
                   <span 
                     key={skill.name} 
                     className="skill-tag"
-                    title={`숙련도: ${skill.level}%`}
+                    // title={`숙련도: ${skill.level}%`}
                   >
                     {skill.name}
                   </span>
@@ -133,4 +146,3 @@ export function Skills() {
   );
 }
 
-export default Skills;

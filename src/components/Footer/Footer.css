@@ -1,0 +1,21 @@
+/* Footer 스타일 */
+
+.footer {
+  padding: 24px 0;
+  text-align: center;
+  border-top: 1px solid var(--surface-border);
+}
+
+.footer-text {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+.footer-text a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.footer-text a:hover {
+  text-decoration: underline;
+}

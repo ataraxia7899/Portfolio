@@ -1,10 +1,11 @@
-import { portfolioData } from '../../data/portfolio-data';
-import { useScrollAnimation } from '../../hooks/useScrollAnimation';
-import '../../styles/global.css';
+import { portfolioData } from '../../data';
+import useScrollAnimation from '../../hooks/useScrollAnimation';
+import '../../styles/ScrollAnimation.css';
+import './About.css';
 
 // About 섹션 컴포넌트
-// 자기소개 및 기본 정보를 표시합니다.
-export function About() {
+// 자기소개 및 기본 정보 표시
+export default function About() {
   const { profile } = portfolioData;
   const { ref, isVisible } = useScrollAnimation({ threshold: 0.2 });
 
@@ -21,7 +22,7 @@ export function About() {
           <div className="about-text">
             <h3>저를 소개합니다</h3>
             <p>
-              안녕하세요! 저는 사용자 중심의 웹 애플리케이션을 개발하는 것을 좋아하는 개발자입니다.
+              저는 사용자 중심의 웹 애플리케이션을 개발하는 것을 좋아하는 개발자입니다. <br />
               새로운 기술을 학습하고 적용하는 것에 열정을 가지고 있으며, 
               깔끔한 코드와 효율적인 아키텍처를 추구합니다.
             </p>
@@ -75,7 +76,7 @@ export function About() {
               </div>
               <div className="about-info-content">
                 <span className="about-info-label">위치</span>
-                <span className="about-info-value">대한민국</span>
+                <span className="about-info-value">경기도 화성시</span>
               </div>
             </div>
           </div>
@@ -85,4 +86,3 @@ export function About() {
   );
 }
 
-export default About;

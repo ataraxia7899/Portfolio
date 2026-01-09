@@ -1,12 +1,18 @@
-import { useState, useEffect } from 'react';
-import { portfolioData } from '../../data/portfolio-data';
+import { useState, useEffect, useMemo } from 'react';
+import { portfolioData } from '../../data';
 import './Home.css';
 
 // Home 섹션 컴포넌트
 // 타이핑 효과가 있는 메인 인트로 섹션입니다.
-export function Home() {
+export default function Home() {
   const { profile } = portfolioData;
-  const typingTexts = [profile.title, profile.subtitle, "문제 해결을 즐기는 개발자"];
+  
+  // useMemo로 메모이제이션하여 불필요한 재생성 방지
+  const typingTexts = useMemo(() => [
+    profile.title, 
+    profile.subtitle, 
+    "문제 해결을 즐기는 개발자"
+  ], [profile.title, profile.subtitle]);
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
   const [displayText, setDisplayText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
@@ -87,4 +93,3 @@ export function Home() {
   );
 }
 
-export default Home;

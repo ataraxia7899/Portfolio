@@ -1,10 +1,10 @@
 import { useState, useMemo, useEffect } from 'react';
-import { portfolioData } from '../../data/portfolio-data';
+import { portfolioData } from '../../data';
 import './Projects.css';
 
 // Projects 섹션 컴포넌트
-// 프로젝트 그리드, 페이지네이션, 정렬 기능을 포함합니다.
-export function Projects() {
+// 프로젝트 그리드, 페이지네이션, 정렬 기능 포함
+export default function Projects() {
   const { projects } = portfolioData;
   const ITEMS_PER_PAGE = 9;
   
@@ -340,4 +340,3 @@ function ProjectModal({ project, isOpen, onClose }) {
   );
 }
 
-export default Projects;

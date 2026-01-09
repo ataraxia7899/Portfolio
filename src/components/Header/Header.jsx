@@ -1,16 +1,24 @@
 import { useState, useEffect } from 'react';
-import { portfolioData } from '../../data/portfolio-data';
-import { useSectionObserver } from '../../hooks/useSectionObserver';
+import useSectionObserver from '../../hooks/useSectionObserver';
 import './Header.css';
 
+// 네비게이션 메뉴 데이터
+const navigation = [
+  { id: "home", label: "홈" },
+  { id: "about", label: "소개" },
+  { id: "skills", label: "기술" },
+  { id: "projects", label: "프로젝트" },
+  { id: "experience", label: "경력" }
+];
+
 // 헤더 컴포넌트
-// 스티키 네비게이션, 테마 토글, 모바일 메뉴를 포함합니다.
-export function Header({ theme, toggleTheme }) {
+// 스티키 네비게이션, 테마 토글, 모바일 메뉴 포함
+export default function Header({ theme, toggleTheme }) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   
   // 네비게이션 섹션 ID 추출
-  const sectionIds = portfolioData.navigation.map(item => item.id);
+  const sectionIds = navigation.map(item => item.id);
   const activeSection = useSectionObserver(sectionIds);
 
   // 스크롤 감지
@@ -35,6 +43,18 @@ export function Header({ theme, toggleTheme }) {
     };
   }, [isMobileMenuOpen]);
 
+  // 창 크기가 커지면 모바일 메뉴 자동 닫기
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 768 && isMobileMenuOpen) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [isMobileMenuOpen]);
+
   const handleNavClick = (e, id) => {
     e.preventDefault();
     const element = document.getElementById(id);
@@ -50,7 +70,7 @@ export function Header({ theme, toggleTheme }) {
         <div className="header-container">
           {/* 데스크톱 네비게이션 */}
           <nav className="header-nav">
-            {portfolioData.navigation.map((item) => (
+            {navigation.map((item) => (
               <a
                 key={item.id}
                 href={`#${item.id}`}
@@ -108,7 +128,7 @@ export function Header({ theme, toggleTheme }) {
 
         {/* 모바일 메뉴 */}
         <nav className={`mobile-menu ${isMobileMenuOpen ? 'open' : ''}`}>
-          {portfolioData.navigation.map((item) => (
+          {navigation.map((item) => (
             <a
               key={item.id}
               href={`#${item.id}`}
@@ -146,4 +166,3 @@ function ScrollProgress() {
   return <div className="scroll-progress" style={{ width: `${progress}%` }} />;
 }
 
-export default Header;

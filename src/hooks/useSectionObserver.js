@@ -1,17 +1,16 @@
 import { useState, useEffect, useRef } from 'react';
 
 // 스크롤 위치에 따른 활성 섹션을 감지하는 커스텀 훅
-// Intersection Observer API를 활용합니다.
-export function useSectionObserver(sectionIds, options = {}) {
+// Intersection Observer API 활용
+export default function useSectionObserver(sectionIds, options = {}) {
   const [activeSection, setActiveSection] = useState(sectionIds[0] || '');
   const observerRef = useRef(null);
 
   useEffect(() => {
     const observerOptions = {
       root: null,
-      rootMargin: '-20% 0px -60% 0px',
-      threshold: 0,
-      ...options
+      rootMargin: options.rootMargin || '-20% 0px -60% 0px',
+      threshold: options.threshold || 0,
     };
 
     observerRef.current = new IntersectionObserver((entries) => {
@@ -35,9 +34,9 @@ export function useSectionObserver(sectionIds, options = {}) {
         observerRef.current.disconnect();
       }
     };
-  }, [sectionIds, options]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [sectionIds.join(','), options.rootMargin, options.threshold]);
 
   return activeSection;
 }
 
-export default useSectionObserver;
