@@ -1,11 +1,9 @@
 import { useRef, useEffect, useState } from 'react';
 
-/**
- * 스크롤 애니메이션 훅
- * 요소가 뷰포트에 들어올 때 애니메이션을 트리거합니다.
- * @param {Object} options - IntersectionObserver 옵션
- * @returns {Object} ref와 isVisible 상태를 반환
- */
+// 스크롤 애니메이션 훅
+// 요소가 뷰포트에 들어올 때 애니메이션을 트리거합니다.
+// @param {Object} options - IntersectionObserver 옵션
+// @returns {Object} ref와 isVisible 상태를 반환
 export function useScrollAnimation(options = {}) {
   const ref = useRef(null);
   const [isVisible, setIsVisible] = useState(false);

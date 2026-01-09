@@ -1,8 +1,6 @@
-/* ========================================
-   Hero 섹션 스타일
-   ======================================== */
+/* Home 섹션 스타일 */
 
-.hero {
+.home {
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -13,7 +11,7 @@
 }
 
 /* 배경 그라디언트 효과 */
-.hero::before {
+.home::before {
   content: '';
   position: absolute;
   top: 0;
@@ -27,7 +25,7 @@
   pointer-events: none;
 }
 
-.hero-content {
+.home-content {
   position: relative;
   z-index: 1;
   text-align: center;
@@ -35,7 +33,7 @@
   padding: 0 24px;
 }
 
-.hero-greeting {
+.home-greeting {
   font-size: 1.25rem;
   font-weight: 500;
   color: var(--primary);
@@ -45,7 +43,7 @@
   animation-delay: 0.2s;
 }
 
-.hero-title {
+.home-title {
   font-size: clamp(2.75rem, 8vw, 4.5rem);
   font-weight: 800;
   line-height: 1.1;
@@ -55,14 +53,14 @@
   animation-delay: 0.4s;
 }
 
-.hero-title-gradient {
+.home-title-gradient {
   background: linear-gradient(135deg, var(--primary), var(--secondary), var(--accent));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-.hero-subtitle {
+.home-subtitle {
   font-size: clamp(1.375rem, 4vw, 1.875rem);
   font-weight: 600;
   color: var(--text-secondary);
@@ -89,7 +87,7 @@
   51%, 100% { opacity: 0; }
 }
 
-.hero-description {
+.home-description {
   font-size: 1.2rem;
   color: var(--text-secondary);
   max-width: 650px;
@@ -100,7 +98,7 @@
 }
 
 /* CTA 버튼 그룹 */
-.hero-cta {
+.home-cta {
   display: flex;
   gap: 16px;
   justify-content: center;
@@ -110,7 +108,7 @@
   animation-delay: 1s;
 }
 
-.hero-btn {
+.home-btn {
   display: inline-flex;
   align-items: center;
   gap: 10px;
@@ -122,31 +120,31 @@
   transition: all var(--transition-normal);
 }
 
-.hero-btn-primary {
+.home-btn-primary {
   background: linear-gradient(135deg, var(--primary), var(--secondary));
   color: white;
   box-shadow: 0 4px 14px var(--primary-glow);
 }
 
-.hero-btn-primary:hover {
+.home-btn-primary:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 20px var(--primary-glow);
   color: white;
 }
 
-.hero-btn-secondary {
+.home-btn-secondary {
   background: var(--surface);
   color: var(--text-primary);
   border: 1px solid var(--surface-border);
 }
 
-.hero-btn-secondary:hover {
+.home-btn-secondary:hover {
   background: var(--surface-hover);
   border-color: var(--primary);
   color: var(--primary);
 }
 
-.hero-btn svg {
+.home-btn svg {
   width: 18px;
   height: 18px;
 }
@@ -214,16 +212,16 @@
 
 /* 반응형 */
 @media (max-width: 768px) {
-  .hero {
+  .home {
     padding-top: calc(var(--header-height) + 40px);
   }
   
-  .hero-cta {
+  .home-cta {
     flex-direction: column;
     align-items: center;
   }
   
-  .hero-btn {
+  .home-btn {
     width: 100%;
     max-width: 280px;
     justify-content: center;

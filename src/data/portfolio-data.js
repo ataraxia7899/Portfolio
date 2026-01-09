@@ -1,23 +1,20 @@
-/**
- * 포트폴리오 데이터를 정의하는 JSON 파일
- * 모든 프로젝트, 스킬, 개인 정보를 이 파일에서 관리합니다.
- */
+// 포트폴리오 데이터를 정의하는 JSON 파일
+// 모든 프로젝트, 스킬, 개인 정보를 이 파일에서 관리합니다.
 
 export const portfolioData = {
   // 개인 정보 섹션
   profile: {
-    name: "홍길동",
+    name: "변진환",
     title: "풀스택 개발자",
     subtitle: "문제 해결을 즐기는 개발자",
     description: "사용자 경험을 중시하며, 효율적이고 확장 가능한 솔루션을 만드는 것을 좋아합니다.",
-    email: "example@email.com",
-    github: "https://github.com/username",
-    linkedin: "https://linkedin.com/in/username"
+    email: "ataraxia7899@gmail.com",
+    github: "https://github.com/ataraxia7899",
   },
 
   // 네비게이션 메뉴
   navigation: [
-    { id: "hero", label: "홈" },
+    { id: "home", label: "홈" },
     { id: "about", label: "소개" },
     { id: "skills", label: "기술" },
     { id: "projects", label: "프로젝트" },

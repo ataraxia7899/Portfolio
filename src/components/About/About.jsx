@@ -2,10 +2,8 @@ import { portfolioData } from '../../data/portfolio-data';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 import '../../styles/global.css';
 
-/**
- * About 섹션 컴포넌트
- * 자기소개 및 기본 정보를 표시합니다.
- */
+// About 섹션 컴포넌트
+// 자기소개 및 기본 정보를 표시합니다.
 export function About() {
   const { profile } = portfolioData;
   const { ref, isVisible } = useScrollAnimation({ threshold: 0.2 });

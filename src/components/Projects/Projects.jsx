@@ -2,10 +2,8 @@ import { useState, useMemo, useEffect } from 'react';
 import { portfolioData } from '../../data/portfolio-data';
 import './Projects.css';
 
-/**
- * Projects 섹션 컴포넌트
- * 프로젝트 그리드, 페이지네이션, 정렬 기능을 포함합니다.
- */
+// Projects 섹션 컴포넌트
+// 프로젝트 그리드, 페이지네이션, 정렬 기능을 포함합니다.
 export function Projects() {
   const { projects } = portfolioData;
   const ITEMS_PER_PAGE = 9;
@@ -136,9 +134,7 @@ export function Projects() {
   );
 }
 
-/**
- * 프로젝트 카드 컴포넌트
- */
+// 프로젝트 카드 컴포넌트
 function ProjectCard({ project, onClick }) {
   return (
     <article className="project-card" onClick={onClick}>
@@ -172,9 +168,7 @@ function ProjectCard({ project, onClick }) {
   );
 }
 
-/**
- * 페이지네이션 컴포넌트
- */
+// 페이지네이션 컴포넌트
 function Pagination({ currentPage, totalPages, onPageChange }) {
   const pages = [];
   for (let i = 1; i <= totalPages; i++) {
@@ -220,9 +214,7 @@ function Pagination({ currentPage, totalPages, onPageChange }) {
   );
 }
 
-/**
- * 프로젝트 상세 모달 컴포넌트
- */
+// 프로젝트 상세 모달 컴포넌트
 function ProjectModal({ project, isOpen, onClose }) {
   if (!project) return null;
 

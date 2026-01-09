@@ -2,10 +2,8 @@ import { useRef, useEffect } from 'react';
 import { portfolioData } from '../../data/portfolio-data';
 import '../../styles/global.css';
 
-/**
- * Experience 섹션 컴포넌트
- * 타임라인 형태로 경력 및 학력을 표시합니다.
- */
+// Experience 섹션 컴포넌트
+// 타임라인 형태로 경력 및 학력을 표시합니다.
 export function Experience() {
   const { experience } = portfolioData;
   const timelineRef = useRef(null);

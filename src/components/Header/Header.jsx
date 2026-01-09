@@ -3,10 +3,8 @@ import { portfolioData } from '../../data/portfolio-data';
 import { useSectionObserver } from '../../hooks/useSectionObserver';
 import './Header.css';
 
-/**
- * 헤더 컴포넌트
- * 스티키 네비게이션, 테마 토글, 모바일 메뉴를 포함합니다.
- */
+// 헤더 컴포넌트
+// 스티키 네비게이션, 테마 토글, 모바일 메뉴를 포함합니다.
 export function Header({ theme, toggleTheme }) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -129,9 +127,7 @@ export function Header({ theme, toggleTheme }) {
   );
 }
 
-/**
- * 스크롤 프로그레스 바 컴포넌트
- */
+// 스크롤 프로그레스 바 컴포넌트
 function ScrollProgress() {
   const [progress, setProgress] = useState(0);
 

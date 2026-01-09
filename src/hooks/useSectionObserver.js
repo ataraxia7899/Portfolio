@@ -1,9 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 
-/**
- * 스크롤 위치에 따른 활성 섹션을 감지하는 커스텀 훅
- * Intersection Observer API를 활용합니다.
- */
+// 스크롤 위치에 따른 활성 섹션을 감지하는 커스텀 훅
+// Intersection Observer API를 활용합니다.
 export function useSectionObserver(sectionIds, options = {}) {
   const [activeSection, setActiveSection] = useState(sectionIds[0] || '');
   const observerRef = useRef(null);

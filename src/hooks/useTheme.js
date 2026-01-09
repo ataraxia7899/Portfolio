@@ -1,9 +1,7 @@
 import { useState, useEffect } from 'react';
 
-/**
- * 다크/라이트 테마를 관리하는 커스텀 훅
- * 시스템 설정 또는 사용자 선택에 따라 테마를 전환합니다.
- */
+// 다크/라이트 테마를 관리하는 커스텀 훅
+// 시스템 설정 또는 사용자 선택에 따라 테마를 전환합니다.
 export function useTheme() {
   const [theme, setTheme] = useState(() => {
     // 로컬 스토리지에 저장된 테마 확인

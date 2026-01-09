@@ -2,10 +2,8 @@ import { portfolioData } from '../../data/portfolio-data';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 import '../../styles/global.css';
 
-/**
- * Contact 섹션 컴포넌트
- * 연락처 정보와 소셜 링크를 표시합니다.
- */
+// Contact 섹션 컴포넌트
+// 연락처 정보와 소셜 링크를 표시합니다.
 export function Contact() {
   const { profile } = portfolioData;
   const { ref, isVisible } = useScrollAnimation({ threshold: 0.2 });

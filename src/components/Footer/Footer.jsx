@@ -1,8 +1,6 @@
 import '../../styles/global.css';
 
-/**
- * Footer 컴포넌트
- */
+// Footer 컴포넌트
 export function Footer() {
   const currentYear = new Date().getFullYear();
 

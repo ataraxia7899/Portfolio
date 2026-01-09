@@ -2,10 +2,8 @@ import { useEffect, useRef } from 'react';
 import { portfolioData } from '../../data/portfolio-data';
 import './Skills.css';
 
-/**
- * Skills 섹션 컴포넌트
- * 카테고리별 기술 스택을 태그 그리드로 표시합니다.
- */
+// Skills 섹션 컴포넌트
+// 카테고리별 기술 스택을 태그 그리드로 표시합니다.
 export function Skills() {
   const { skills } = portfolioData;
   const sectionRef = useRef(null);
