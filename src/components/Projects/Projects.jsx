@@ -115,10 +115,14 @@ export default function Projects() {
             onPageChange={(page) => {
               setCurrentPage(page);
               // 페이지 변경 시 프로젝트 섹션 상단으로 스크롤
-              const projectsSection = document.getElementById('projects');
-              if (projectsSection) {
-                projectsSection.scrollIntoView({ behavior: 'smooth' });
-              }
+              setTimeout(() => {
+                const projectsSection = document.getElementById('projects');
+                if (projectsSection) {
+                  const headerHeight = 72;
+                  const top = projectsSection.getBoundingClientRect().top + window.scrollY - headerHeight;
+                  window.scrollTo({ top, behavior: 'smooth' });
+                }
+              }, 50);
             }}
           />
         )}
