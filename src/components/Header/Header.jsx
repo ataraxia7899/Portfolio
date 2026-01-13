@@ -120,7 +120,7 @@ export default function Header({ theme, toggleTheme }) {
             <button 
               className="mobile-menu-btn"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              aria-label="메뉴 열기"
+              aria-label={isMobileMenuOpen ? '메뉴 닫기' : '메뉴 열기'}
               aria-expanded={isMobileMenuOpen}
             >
               {isMobileMenuOpen ? (

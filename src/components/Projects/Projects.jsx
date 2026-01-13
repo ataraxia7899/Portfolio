@@ -1,22 +1,15 @@
 import { useState, useMemo, useEffect } from 'react';
 import { portfolioData } from '../../data';
+import { ITEMS_PER_PAGE, getHeaderHeight } from '../../constants';
 import ProjectCard from './ProjectCard';
 import Pagination from './Pagination';
 import ProjectModal from './ProjectModal';
 import './Projects.css';
 
-// CSS 변수에서 헤더 높이 가져오기
-const getHeaderHeight = () => {
-  const rootStyle = getComputedStyle(document.documentElement);
-  const headerHeight = rootStyle.getPropertyValue('--header-height').trim();
-  return parseInt(headerHeight, 10) || 72;
-};
-
 // Projects 섹션 컴포넌트
 // 프로젝트 그리드, 페이지네이션, 정렬 기능 포함
 export default function Projects() {
   const { projects } = portfolioData;
-  const ITEMS_PER_PAGE = 9;
   
   const [currentPage, setCurrentPage] = useState(1);
   const [sortOrder, setSortOrder] = useState('desc'); // 'desc': 최신순, 'asc': 오래된순

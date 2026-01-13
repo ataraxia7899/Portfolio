@@ -1,5 +1,6 @@
 import { useState, useEffect, useMemo } from 'react';
 import { portfolioData } from '../../data';
+import { TYPING_SPEED, DELETE_SPEED, PAUSE_TIME } from '../../constants';
 import './Home.css';
 
 // Home 섹션 컴포넌트
@@ -20,8 +21,7 @@ export default function Home() {
   // 타이핑 효과
   useEffect(() => {
     const currentFullText = typingTexts[currentTextIndex];
-    const typingSpeed = isDeleting ? 50 : 100;
-    const pauseTime = 2000;
+    const typingSpeed = isDeleting ? DELETE_SPEED : TYPING_SPEED;
 
     const timeout = setTimeout(() => {
       if (!isDeleting) {
@@ -30,7 +30,7 @@ export default function Home() {
           setDisplayText(currentFullText.slice(0, displayText.length + 1));
         } else {
           // 타이핑 완료, 잠시 대기 후 삭제 시작
-          setTimeout(() => setIsDeleting(true), pauseTime);
+          setTimeout(() => setIsDeleting(true), PAUSE_TIME);
         }
       } else {
         // 삭제 중
