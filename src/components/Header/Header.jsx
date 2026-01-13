@@ -1,6 +1,18 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import useSectionObserver from '../../hooks/useSectionObserver';
 import './Header.css';
+
+// 스크롤 이벤트 쓰로틀링 유틸리티 함수
+const throttle = (fn, delay) => {
+  let lastCall = 0;
+  return (...args) => {
+    const now = Date.now();
+    if (now - lastCall >= delay) {
+      lastCall = now;
+      fn(...args);
+    }
+  };
+};
 
 // 네비게이션 메뉴 데이터
 const navigation = [
@@ -21,13 +33,13 @@ export default function Header({ theme, toggleTheme }) {
   const sectionIds = navigation.map(item => item.id);
   const activeSection = useSectionObserver(sectionIds);
 
-  // 스크롤 감지
+  // 스크롤 감지 (쓰로틀링 적용)
   useEffect(() => {
-    const handleScroll = () => {
+    const handleScroll = throttle(() => {
       setIsScrolled(window.scrollY > 20);
-    };
+    }, 100);
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -147,19 +159,19 @@ export default function Header({ theme, toggleTheme }) {
   );
 }
 
-// 스크롤 프로그레스 바 컴포넌트
+// 스크롤 프로그레스 바 컴포넌트 (쓰로틀링 적용)
 function ScrollProgress() {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    const handleScroll = () => {
+    const handleScroll = throttle(() => {
       const scrollTop = window.scrollY;
       const docHeight = document.documentElement.scrollHeight - window.innerHeight;
       const scrollPercent = (scrollTop / docHeight) * 100;
       setProgress(scrollPercent);
-    };
+    }, 50);
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 

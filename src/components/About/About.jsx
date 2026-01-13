@@ -76,7 +76,7 @@ export default function About() {
               </div>
               <div className="about-info-content">
                 <span className="about-info-label">위치</span>
-                <span className="about-info-value">경기도 화성시</span>
+                <span className="about-info-value">{profile.location}</span>
               </div>
             </div>
           </div>

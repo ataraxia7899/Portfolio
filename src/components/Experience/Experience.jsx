@@ -1,5 +1,5 @@
-import { useRef, useEffect } from 'react';
 import { portfolioData } from '../../data';
+import useSequentialAnimation from '../../hooks/useSequentialAnimation';
 import '../../styles/ScrollAnimation.css';
 import './Experience.css';
 
@@ -7,37 +7,21 @@ import './Experience.css';
 // 타임라인 형태로 경력 및 학력 표시
 export default function Experience() {
   const { experience } = portfolioData;
-  const timelineRef = useRef(null);
-
-  // 스크롤 시 각 타임라인 아이템 순차 애니메이션
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('animate-in');
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    const items = timelineRef.current?.querySelectorAll('.timeline-item');
-    items?.forEach((item, index) => {
-      item.style.transitionDelay = `${index * 0.15}s`;
-      observer.observe(item);
-    });
-
-    return () => observer.disconnect();
-  }, []);
+  
+  // 순차적 애니메이션 훅 사용
+  const { containerRef } = useSequentialAnimation('.timeline-item', {
+    threshold: 0.1,
+    delayIncrement: 150,
+    animationClass: 'animate-in',
+  });
 
   return (
     <section id="experience" className="section">
       <div className="container">
         <h2 className="section-title">
-          <span>경험 & 교육</span>
+          <span>경험 &amp; 교육</span>
         </h2>
-        <div className="experience-timeline" ref={timelineRef}>
+        <div className="experience-timeline" ref={containerRef}>
           {experience.map((item) => (
             <div key={item.id} className="timeline-item scroll-animate">
               <div className="timeline-dot" />
@@ -65,4 +49,3 @@ export default function Experience() {
     </section>
   );
 }
-
