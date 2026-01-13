@@ -1,8 +1,8 @@
 /* 디자인 시스템 - CSS 변수 및 글로벌 스타일 */
 
-/* 폰트 임포트 */
-@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap');
+/* 폰트 임포트 - index.html에서 이미 preload로 동일한 폰트를 로딩하고 있어 주석처리 */
+/* @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css'); */
+/* @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap'); */
 
 :root {
   /* 색상 팔레트 - 라이트 모드 (티얼-에메랄드 계열) */

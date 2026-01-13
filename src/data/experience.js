@@ -33,7 +33,7 @@ export const experience = [
     type: "training",
     title: "AI 융합 및 로우코드 솔루션 개발 과정",
     organization: "글로벌 아카데미",
-    period: "2025.04 - 2025.12",
+    period: "2025.04 ~ 2025.12",
     description: "우수훈련생 표창 수료",
     details: [
       "Java와 Python 기반 데이터 분석 및 AI 예측 자동화 시스템 개발",
