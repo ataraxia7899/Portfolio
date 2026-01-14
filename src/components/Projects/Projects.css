@@ -18,11 +18,54 @@
   text-align: left;
 }
 
-/* 정렬 컨트롤 */
+/* 컨트롤 영역 */
 .projects-controls {
   display: flex;
   align-items: center;
   gap: 16px;
+}
+
+/* 보기 모드 전환 버튼 */
+.view-mode-controls {
+  display: flex;
+  gap: 4px;
+  margin-right: 8px;
+}
+
+.view-mode-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  color: var(--text-secondary);
+  background: var(--surface);
+  border: 1px solid var(--surface-border);
+  border-radius: var(--border-radius-sm);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.view-mode-btn:hover {
+  color: var(--text-primary);
+  border-color: var(--primary);
+}
+
+.view-mode-btn.active {
+  color: var(--primary);
+  border-color: var(--primary);
+  background: var(--primary-glow);
+}
+
+.view-mode-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* 정렬 컨트롤 */
+.sort-controls {
+  display: flex;
+  gap: 8px;
 }
 
 .sort-btn {
@@ -55,6 +98,122 @@
   width: 16px;
   height: 16px;
 }
+
+/* 리스트형 보기 */
+.projects-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.project-list-item {
+  display: grid;
+  grid-template-columns: 140px 1fr auto auto;
+  align-items: center;
+  gap: 24px;
+  padding: 20px 24px;
+  background: var(--surface);
+  border: 1px solid var(--surface-border);
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.project-list-item:hover {
+  border-color: var(--primary);
+  box-shadow: var(--shadow-md);
+}
+
+.project-list-item:focus {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.project-list-date {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.project-list-content {
+  min-width: 0;
+}
+
+.project-list-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.project-list-description {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.project-list-tags {
+  display: flex;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.project-list-arrow {
+  color: var(--text-muted);
+  transition: color var(--transition-fast), transform var(--transition-fast);
+}
+
+.project-list-item:hover .project-list-arrow {
+  color: var(--primary);
+  transform: translateX(4px);
+}
+
+.project-list-arrow svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* 목록형 반응형 */
+@media (max-width: 1024px) {
+  .project-list-item {
+    grid-template-columns: 1fr auto;
+    gap: 16px;
+  }
+  
+  .project-list-date {
+    display: none;
+  }
+  
+  .project-list-tags {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .projects-controls {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  
+  .view-mode-controls {
+    margin-right: 0;
+  }
+  
+  .project-list-item {
+    padding: 16px;
+  }
+  
+  .project-list-arrow {
+    display: none;
+  }
+}
+
 
 /* 프로젝트 그리드 컨테이너 (데스크톱 네비게이션 포함) */
 .projects-grid-container {
@@ -279,9 +438,10 @@
   height: 18px;
 }
 
-/* 데스크톱에서 페이지네이션 화살표 숨김 (그리드 양 옆에 버튼이 있으므로) */
+/* 카드형 데스크톱에서만 페이지네이션 화살표 숨김 (그리드 양 옆에 버튼이 있으므로) */
+/* 리스트형에서는 항상 화살표 표시 */
 @media (min-width: 1280px) {
-  .pagination-arrow {
+  .projects:has(.projects-grid-container) .pagination-arrow {
     display: none;
   }
 }

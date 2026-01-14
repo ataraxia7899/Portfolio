@@ -2,6 +2,7 @@
 
 // 페이지네이션
 export const ITEMS_PER_PAGE = 6;
+export const ITEMS_PER_PAGE_LIST = 9;
 
 // 타이핑 효과
 export const TYPING_SPEED = 100;
