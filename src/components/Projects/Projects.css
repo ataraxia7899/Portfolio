@@ -56,8 +56,63 @@
   height: 16px;
 }
 
+/* 프로젝트 그리드 컨테이너 (데스크톱 네비게이션 포함) */
+.projects-grid-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+/* 페이지 네비게이션 버튼 (데스크톱) */
+.page-nav-btn {
+  display: none;
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  align-items: center;
+  justify-content: center;
+  background: var(--surface);
+  border: 1px solid var(--surface-border);
+  border-radius: 50%;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  box-shadow: var(--shadow-sm);
+}
+
+.page-nav-btn:hover:not(:disabled) {
+  color: var(--primary);
+  border-color: var(--primary);
+  background: var(--primary-glow);
+  box-shadow: var(--shadow-md);
+}
+
+.page-nav-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.page-nav-btn svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* 데스크톱에서만 페이지 네비게이션 버튼 표시 */
+@media (min-width: 1280px) {
+  .page-nav-btn {
+    display: flex;
+  }
+  
+  .projects-grid-container {
+    margin: 0 -60px;
+    padding: 0 60px;
+  }
+}
+
 /* 프로젝트 그리드 */
 .projects-grid {
+  flex: 1;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
@@ -222,6 +277,13 @@
 .pagination-btn svg {
   width: 18px;
   height: 18px;
+}
+
+/* 데스크톱에서 페이지네이션 화살표 숨김 (그리드 양 옆에 버튼이 있으므로) */
+@media (min-width: 1280px) {
+  .pagination-arrow {
+    display: none;
+  }
 }
 
 /* 프로젝트 상세 모달 */

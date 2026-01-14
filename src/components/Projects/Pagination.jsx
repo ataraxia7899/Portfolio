@@ -9,7 +9,7 @@ export default function Pagination({ currentPage, totalPages, onPageChange }) {
   return (
     <nav className="pagination" aria-label="프로젝트 페이지네이션">
       <button
-        className="pagination-btn"
+        className="pagination-btn pagination-arrow"
         onClick={() => onPageChange(currentPage - 1)}
         disabled={currentPage === 1}
         aria-label="이전 페이지"
@@ -32,7 +32,7 @@ export default function Pagination({ currentPage, totalPages, onPageChange }) {
       ))}
       
       <button
-        className="pagination-btn"
+        className="pagination-btn pagination-arrow"
         onClick={() => onPageChange(currentPage + 1)}
         disabled={currentPage === totalPages}
         aria-label="다음 페이지"

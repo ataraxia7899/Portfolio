@@ -1,7 +1,7 @@
 // 애플리케이션 전역 상수
 
 // 페이지네이션
-export const ITEMS_PER_PAGE = 9;
+export const ITEMS_PER_PAGE = 6;
 
 // 타이핑 효과
 export const TYPING_SPEED = 100;

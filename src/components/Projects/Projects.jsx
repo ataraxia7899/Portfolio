@@ -71,15 +71,23 @@ export default function Projects() {
   // 페이지 변경 핸들러
   const handlePageChange = (page) => {
     setCurrentPage(page);
-    // 페이지 변경 시 프로젝트 섹션 상단으로 스크롤
-    setTimeout(() => {
-      const projectsSection = document.getElementById('projects');
-      if (projectsSection) {
-        const headerHeight = getHeaderHeight();
-        const top = projectsSection.getBoundingClientRect().top + window.scrollY - headerHeight;
-        window.scrollTo({ top, behavior: 'smooth' });
-      }
-    }, 50);
+    
+    // 모바일에서만 프로젝트 섹션 상단으로 스크롤
+    if (window.innerWidth <= 768) {
+      // 상태 업데이트 후 스크롤 애니메이션 실행
+      requestAnimationFrame(() => {
+        const projectsSection = document.getElementById('projects');
+        if (projectsSection) {
+          const headerHeight = getHeaderHeight();
+          const targetPosition = projectsSection.getBoundingClientRect().top + window.scrollY - headerHeight;
+          
+          window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+          });
+        }
+      });
+    }
   };
 
   return (
@@ -113,18 +121,49 @@ export default function Projects() {
           </div>
         </div>
 
-        {/* 프로젝트 그리드 */}
-        <div className="projects-grid">
-          {currentProjects.map((project) => (
-            <ProjectCard 
-              key={project.id} 
-              project={project} 
-              onClick={() => openModal(project)}
-            />
-          ))}
+        {/* 프로젝트 그리드 컨테이너 (데스크톱 네비게이션 포함) */}
+        <div className="projects-grid-container">
+          {/* 이전 페이지 버튼 (데스크톱) */}
+          {totalPages > 1 && (
+            <button
+              className="page-nav-btn page-nav-prev"
+              onClick={() => handlePageChange(currentPage - 1)}
+              disabled={currentPage === 1}
+              aria-label="이전 페이지"
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M15 18l-6-6 6-6" />
+              </svg>
+            </button>
+          )}
+
+          {/* 프로젝트 그리드 */}
+          <div className="projects-grid">
+            {currentProjects.map((project) => (
+              <ProjectCard 
+                key={project.id} 
+                project={project} 
+                onClick={() => openModal(project)}
+              />
+            ))}
+          </div>
+
+          {/* 다음 페이지 버튼 (데스크톱) */}
+          {totalPages > 1 && (
+            <button
+              className="page-nav-btn page-nav-next"
+              onClick={() => handlePageChange(currentPage + 1)}
+              disabled={currentPage === totalPages}
+              aria-label="다음 페이지"
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M9 18l6-6-6-6" />
+              </svg>
+            </button>
+          )}
         </div>
 
-        {/* 페이지네이션 */}
+        {/* 페이지네이션 (모바일 + 페이지 인디케이터) */}
         {totalPages > 1 && (
           <Pagination
             currentPage={currentPage}
