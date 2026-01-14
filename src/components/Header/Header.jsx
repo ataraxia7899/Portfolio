@@ -137,21 +137,21 @@ export default function Header({ theme, toggleTheme }) {
             </button>
           </div>
         </div>
-
-        {/* 모바일 메뉴 */}
-        <nav className={`mobile-menu ${isMobileMenuOpen ? 'open' : ''}`}>
-          {navigation.map((item) => (
-            <a
-              key={item.id}
-              href={`#${item.id}`}
-              className={`mobile-nav-link ${activeSection === item.id ? 'active' : ''}`}
-              onClick={(e) => handleNavClick(e, item.id)}
-            >
-              {item.label}
-            </a>
-          ))}
-        </nav>
       </header>
+
+      {/* 모바일 메뉴 - header 외부에 배치하여 독립적인 backdrop-filter 적용 */}
+      <nav className={`mobile-menu ${isMobileMenuOpen ? 'open' : ''}`}>
+        {navigation.map((item) => (
+          <a
+            key={item.id}
+            href={`#${item.id}`}
+            className={`mobile-nav-link ${activeSection === item.id ? 'active' : ''}`}
+            onClick={(e) => handleNavClick(e, item.id)}
+          >
+            {item.label}
+          </a>
+        ))}
+      </nav>
 
       {/* 스크롤 프로그레스 바 */}
       <ScrollProgress />

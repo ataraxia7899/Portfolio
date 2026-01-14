@@ -118,6 +118,7 @@
   top: var(--header-height);
   left: 0;
   right: 0;
+  z-index: 99;
   background: var(--surface);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
