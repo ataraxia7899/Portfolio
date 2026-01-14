@@ -2,18 +2,6 @@ import { useState, useEffect, useCallback } from 'react';
 import useSectionObserver from '../../hooks/useSectionObserver';
 import './Header.css';
 
-// 스크롤 이벤트 쓰로틀링 유틸리티 함수
-const throttle = (fn, delay) => {
-  let lastCall = 0;
-  return (...args) => {
-    const now = Date.now();
-    if (now - lastCall >= delay) {
-      lastCall = now;
-      fn(...args);
-    }
-  };
-};
-
 // 네비게이션 메뉴 데이터
 const navigation = [
   { id: "home", label: "홈" },
@@ -33,14 +21,34 @@ export default function Header({ theme, toggleTheme }) {
   const sectionIds = navigation.map(item => item.id);
   const activeSection = useSectionObserver(sectionIds);
 
-  // 스크롤 감지 (쓰로틀링 적용)
+  // 스크롤 감지 (requestAnimationFrame으로 정확한 상태 추적)
   useEffect(() => {
-    const handleScroll = throttle(() => {
+    let rafId = null;
+    let ticking = false;
+
+    const updateScrollState = () => {
       setIsScrolled(window.scrollY > 20);
-    }, 100);
+      ticking = false;
+    };
+
+    const handleScroll = () => {
+      if (!ticking) {
+        rafId = requestAnimationFrame(updateScrollState);
+        ticking = true;
+      }
+    };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+    
+    // 초기 상태 업데이트
+    updateScrollState();
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (rafId) {
+        cancelAnimationFrame(rafId);
+      }
+    };
   }, []);
 
   // 모바일 메뉴가 열렸을 때 스크롤 방지
@@ -159,20 +167,40 @@ export default function Header({ theme, toggleTheme }) {
   );
 }
 
-// 스크롤 프로그레스 바 컴포넌트 (쓰로틀링 적용)
+// 스크롤 프로그레스 바 컴포넌트 (requestAnimationFrame으로 정확한 위치 추적)
 function ScrollProgress() {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    const handleScroll = throttle(() => {
+    let rafId = null;
+    let ticking = false;
+
+    const updateProgress = () => {
       const scrollTop = window.scrollY;
       const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const scrollPercent = (scrollTop / docHeight) * 100;
+      const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
       setProgress(scrollPercent);
-    }, 50);
+      ticking = false;
+    };
+
+    const handleScroll = () => {
+      if (!ticking) {
+        rafId = requestAnimationFrame(updateProgress);
+        ticking = true;
+      }
+    };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+    
+    // 초기 상태 업데이트
+    updateProgress();
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (rafId) {
+        cancelAnimationFrame(rafId);
+      }
+    };
   }, []);
 
   return <div className="scroll-progress" style={{ width: `${progress}%` }} />;

@@ -18,8 +18,8 @@ export default function useScrollAnimation(options = {}) {
         }
       },
       {
-        threshold: options.threshold || 0.1,
-        rootMargin: options.rootMargin || '0px',
+        threshold: options.threshold || 0.15,
+        rootMargin: options.rootMargin || '50px 0px',
         ...options
       }
     );

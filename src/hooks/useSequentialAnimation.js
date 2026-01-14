@@ -13,20 +13,29 @@ export default function useSequentialAnimation(childSelector, options = {}) {
     if (!container) return;
 
     const observerOptions = {
-      threshold: options.threshold || 0.1,
-      rootMargin: options.rootMargin || '0px',
+      threshold: options.threshold || 0.15,
+      rootMargin: options.rootMargin || '50px 0px',
     };
 
     const delayIncrement = options.delayIncrement || 100;
     const animationClass = options.animationClass || 'animate-in';
+    
+    // 이미 애니메이션된 요소 추적 (중복 방지)
+    const animatedElements = new Set();
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) {
+        // 중복 트리거 방지
+        if (entry.isIntersecting && !animatedElements.has(entry.target)) {
+          animatedElements.add(entry.target);
           const index = parseInt(entry.target.dataset.animationIndex || '0', 10);
-          setTimeout(() => {
-            entry.target.classList.add(animationClass);
-          }, index * delayIncrement);
+          
+          // requestAnimationFrame으로 브라우저 렌더링 최적화
+          requestAnimationFrame(() => {
+            setTimeout(() => {
+              entry.target.classList.add(animationClass);
+            }, index * delayIncrement);
+          });
           
           // 한 번 애니메이션 후 관찰 중지
           observer.unobserve(entry.target);
