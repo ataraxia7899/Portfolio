@@ -284,7 +284,7 @@
     "title": "RPA 기반 ChatGPT 이미지 처리 자동화",
     "shortDescription": "RPA와 ChatGPT API를 연동하여 이미지 분석 및 생성을 자동화하는 시스템",
     "thumbnail": "/MiniProject1/MiniProject1-thumb.gif",
-    "date": "2025.10.31 - 2025.11.04",
+    "date": "2025.10 - 2025.11",
     "category": "RPA & AI",
     "techStack": ["RPA", "ChatGPT API", "Excel", "Gmail"],
     "githubUrl": null,
@@ -310,7 +310,7 @@
     "title": "제조사별 자동차 판매 실적 분석 자동화",
     "shortDescription": "다나와자동차의 판매 실적 데이터를 수집하여 시각화된 엑셀 보고서를 자동 생성하는 시스템",
     "thumbnail": "/MiniProject2/MiniProject2-thumb.gif",
-    "date": "2025.11.14 - 2025.11.27",
+    "date": "2025.11 - 2025.11",
     "category": "RPA",
     "techStack": ["Brity RPA", "Chrome", "Excel"],
     "githubUrl": null,
@@ -337,7 +337,7 @@
     "title": "실험실 안전 진단 관리 시스템",
     "shortDescription": "웹 기반 안전 점검 수행 및 RPA를 활용한 점검 보고서 자동화 솔루션",
     "thumbnail": "/MainProject/MainProject-thumb.gif",
-    "date": "2025.11.04 - 2025.12.12",
+    "date": "2025.11 - 2025.12",
     "category": "웹 & RPA",
     "techStack": ["Brity RPA", "ChatGPT API", "OutSystems"],
     "githubUrl": null,
@@ -365,5 +365,34 @@
         { "src": "/MainProject/MainProject9.png", "caption": "주간 점검 결과 보고서 송신 내용" }
       ]
     }
+  },
+  {
+  "id": 15,
+  "title": "AI 기반 주식 뉴스 감성 분석 시스템",
+  "shortDescription": "뉴스 데이터 수집 및 분석을 통한 주가 예측 보조 시스템",
+  "thumbnail": "/StockSentiment/StockSentiment-thumb.png",
+  "date": "2025.08 - 2025.10",
+  "category": "웹 & AI",
+  "techStack": ["React", "Python", "NewsAPI", "Naver API"],
+  "githubUrl": "https://github.com/G-MainProject/3team",
+  "liveUrl": null,
+  "details": {
+    "background": "투자 의사결정을 돕기 위해 실시간 경제 뉴스를 수집하고, AI를 활용해 시장의 감성 지수를 분석하여 시각화된 리포트를 제공하는 프로젝트입니다.",
+    "features": [
+      "네이버 API를 활용한 실시간 경제 뉴스 URL 수집 및 전달 프로세스 구축",
+      "크롤링을 통한 뉴스 기사 본문 데이터 추출 및 불필요한 태그 제거 등 데이터 정제 수행",
+      "수집 및 정제된 데이터를 JSON 형식으로 가공하여 웹페이지에 동적으로 출력하는 기능 구현",
+      "NewsAPI를 연동하여 분석에 필요한 뉴스 데이터 수집 및 감성 분석 기초 데이터 파이프라인 설계"
+    ],
+    "challenges": "뉴스 본문 추출 시 포함되는 광고 문구와 불필요한 HTML 태그를 효과적으로 제거하여 분석 모델의 정확도를 높이기 위한 데이터 정제 로직 최적화에 집중했습니다.",
+    "images": [
+      { "src": "/StockSentiment/StockSentiment1.png", "caption": "시스템 아키텍처" },
+      { "src": "/StockSentiment/StockSentiment2.png", "caption": "웹페이지에 정제된 JSON 형태 주식 정보 출력" },
+      { "src": "/StockSentiment/StockSentiment3.png", "caption": "네이버 API를 통해 기사 URL 확보 및 전달" },
+      { "src": "/StockSentiment/StockSentiment4.png", "caption": "네이버 API를 통해 전달받은 기사 본문 추출 및 정제" },
+      { "src": "/StockSentiment/StockSentiment5.png", "caption": "OCR - 이미지 전처리" },
+      { "src": "/StockSentiment/StockSentiment6.png", "caption": "OCR - 테이블축 자동추정 및 재구성" }
+    ]
   }
+}
 ]
