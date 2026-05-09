@@ -1,4 +1,4 @@
-import { useRef, useEffect, useCallback } from 'react';
+import { useRef, useEffect } from 'react';
 
 // 순차적 스크롤 애니메이션 훅
 // 여러 자식 요소들이 뷰포트에 들어올 때 순차적으로 애니메이션 트리거

@@ -52,14 +52,22 @@ export default function Projects() {
   // 모달 열기
   const openModal = (project) => {
     setSelectedProject(project);
-    document.body.style.overflow = 'hidden';
   };
 
   // 모달 닫기
   const closeModal = () => {
     setSelectedProject(null);
-    document.body.style.overflow = '';
   };
+
+  // 모달이 열렸을 때 배경 스크롤 방지
+  useEffect(() => {
+    if (!selectedProject) return;
+
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [selectedProject]);
 
   // ESC 키로 모달 닫기
   useEffect(() => {

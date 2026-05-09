@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect } from 'react';
 import useSectionObserver from '../../hooks/useSectionObserver';
 import './Header.css';
 
@@ -11,14 +11,14 @@ const navigation = [
   { id: "experience", label: "경력" }
 ];
 
+const sectionIds = navigation.map(item => item.id);
+
 // 헤더 컴포넌트
 // 스티키 네비게이션, 테마 토글, 모바일 메뉴 포함
 export default function Header({ theme, toggleTheme }) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   
-  // 네비게이션 섹션 ID 추출
-  const sectionIds = navigation.map(item => item.id);
   const activeSection = useSectionObserver(sectionIds);
 
   // 스크롤 감지 (requestAnimationFrame으로 정확한 상태 추적)

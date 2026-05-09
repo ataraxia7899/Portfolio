@@ -7,6 +7,8 @@ import { useRef, useEffect, useState } from 'react';
 export default function useScrollAnimation(options = {}) {
   const ref = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
+  const threshold = options.threshold || 0.15;
+  const rootMargin = options.rootMargin || '50px 0px';
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -18,9 +20,8 @@ export default function useScrollAnimation(options = {}) {
         }
       },
       {
-        threshold: options.threshold || 0.15,
-        rootMargin: options.rootMargin || '50px 0px',
-        ...options
+        threshold,
+        rootMargin
       }
     );
 
@@ -34,7 +35,7 @@ export default function useScrollAnimation(options = {}) {
         observer.unobserve(currentRef);
       }
     };
-  }, [options.threshold, options.rootMargin]);
+  }, [threshold, rootMargin]);
 
   return { ref, isVisible };
 }
